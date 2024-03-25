@@ -12,7 +12,7 @@ public class uzivatelController {
 
     @GetMapping("/api/uzivatel/{id}")
     public uzivatelDTO getUzivatel(@PathVariable Long id) {
-        uzivatelDTO test = new uzivatelDTO();
+        /*uzivatelDTO test = new uzivatelDTO();
         test.setMeno("test1M");
         test.setPriezvisko("test1Pr");
         test.setUsername("testuser");
@@ -21,8 +21,8 @@ public class uzivatelController {
         test.setVek(25);
         test.setVyska("180");
         test.setPohlavie("muz");
-        Long testUserId = uzivatelService.createUzivatel(test);
-        return uzivatelService.getUzivatel(testUserId);
+        Long testUserId = uzivatelService.createUzivatel(test);*/
+        return uzivatelService.getUzivatel(id);
     }
 
     @PostMapping("/api/uzivatel")

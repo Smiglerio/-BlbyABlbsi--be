@@ -33,6 +33,7 @@ public class uzivatelController {
         return uzivatelService.getUzivatel(testUserId);
     }
 
+    /*
     @GetMapping("/api/uzivatel/{id}")
     public ResponseEntity<uzivatelDTO> getUzivatelById(@PathVariable Long id) {
         uzivatelDTO uzivatel = uzivatelService.getUzivatel(id);
@@ -42,7 +43,7 @@ public class uzivatelController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+*/
     // vytvorenie uzivatela
     @PostMapping("/api/uzivatel")
     public Long createUzivatel(@RequestBody uzivatelDTO uzivatel) {

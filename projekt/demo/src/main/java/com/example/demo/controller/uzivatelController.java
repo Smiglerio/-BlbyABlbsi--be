@@ -4,6 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.example.demo.service.uzivatelService;
 import com.example.demo.service.uzivatelDTO;
+
+// pridane
+import java.util.ArrayList;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
 @RestController
 @RequestMapping("fitness")
 public class uzivatelController {
@@ -25,8 +31,41 @@ public class uzivatelController {
         return uzivatelService.getUzivatel(id);
     }
 
+    /*
+        @GetMapping("/api/uzivatel/{id}")
+        public ResponseEntity<uzivatelDTO> getUzivatelById(@PathVariable Long id) {
+            uzivatelDTO uzivatel = uzivatelService.getUzivatel(id);
+            if (uzivatel != null) {
+                return new ResponseEntity<>(uzivatel, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        }
+    */
+    // vytvorenie uzivatela
     @PostMapping("/api/uzivatel")
     public Long createUzivatel(@RequestBody uzivatelDTO uzivatel) {
         return uzivatelService.createUzivatel(uzivatel);
     }
+
+    // získanie all uzívateľov
+    @GetMapping("/api/uzivatel/all")
+    public ArrayList<uzivatelDTO> getAllUzivatelia() {
+        return uzivatelService.getAllUzivatelia();
+    }
+
+    //aktualizaci existujúceho uzívateľa
+    @PutMapping("/api/uzivatel/{id}")
+    public uzivatelDTO updateUzivatel(@PathVariable Long id, @RequestBody uzivatelDTO uzivatel) {
+        return uzivatelService.updateUzivatel(id, uzivatel);
+    }
+
+    //vymazanie existujúceho uzívateľa
+    @DeleteMapping("/api/uzivatel/{id}")
+    public boolean deleteUzivatel(@PathVariable Long id) {
+        return uzivatelService.deleteUzivatel(id);
+    }
+
+
 }
+

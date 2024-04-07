@@ -25,9 +25,9 @@ public class uzivatelController {
         test.setPriezvisko("test1Pr");
         test.setUsername("testuser");
         test.setHeslo("testheslo");
-        test.setVaha("75");
+        test.setVaha(75);
         test.setVek(25);
-        test.setVyska("180");
+        test.setVyska(180);
         test.setPohlavie("muz");
         Long testUserId = uzivatelService.createUzivatel(test);
         return uzivatelService.getUzivatel(testUserId);

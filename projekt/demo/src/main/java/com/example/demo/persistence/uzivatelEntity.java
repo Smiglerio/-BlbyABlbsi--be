@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data // automaticky doplni gettre, setre , toString , ...
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
@@ -21,12 +23,20 @@ public class uzivatelEntity {
     @Column(name = "vek")
     private int vek;
     @Column(name = "vaha")
-    private String vaha;
+    private int vaha;
     @Column(name = "vyska")
-    private String vyska;
+    private int vyska;
     @Column(name = "pohlavie")
     private String pohlavie;
+    @Column(name = "userid")
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
+
+    @ManyToMany@JoinTable(
+            name = "usertp",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "planid")
+    )
+    private List<treningovePlanyEntity> usertp;
 }

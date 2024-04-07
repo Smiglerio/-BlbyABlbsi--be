@@ -33,7 +33,8 @@ public class uzivatelEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @ManyToMany@JoinTable(
+    @ManyToMany
+    @JoinTable(
             name = "usertp",
             joinColumns = @JoinColumn(name = "userid"),
             inverseJoinColumns = @JoinColumn(name = "planid")

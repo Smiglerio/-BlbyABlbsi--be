@@ -94,4 +94,13 @@ public class uzivatelService {
             return false;
         }
     }
+
+    public boolean authenticate(String username, String password) {
+        uzivatelEntity user = uzivatelRepository.findByUsername(username);
+        if (user != null && user.getHeslo().equals(password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

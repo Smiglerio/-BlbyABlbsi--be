@@ -17,8 +17,8 @@ public class uzivatelDTO {
     private String username;
     private String heslo;
     private int vek;
-    private String vaha;
-    private String vyska;
+    private int vaha;
+    private int vyska;
     private String pohlavie;
     private Long userId;
 }

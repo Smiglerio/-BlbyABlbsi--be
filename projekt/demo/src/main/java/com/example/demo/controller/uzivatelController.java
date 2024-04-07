@@ -20,30 +20,20 @@ public class uzivatelController {
 
     @GetMapping("/api/uzivatel/{id}")
     public uzivatelDTO getUzivatel(@PathVariable Long id) {
-        uzivatelDTO test = new uzivatelDTO();
-        test.setMeno("test1M");
-        test.setPriezvisko("test1Pr");
-        test.setUsername("testuser");
-        test.setHeslo("testheslo");
-        test.setVaha(75);
-        test.setVek(25);
-        test.setVyska(180);
-        test.setPohlavie("muz");
-        Long testUserId = uzivatelService.createUzivatel(test);
-        return uzivatelService.getUzivatel(testUserId);
+        return uzivatelService.getUzivatel(id);
     }
 
-    /*
-    @GetMapping("/api/uzivatel/{id}")
-    public ResponseEntity<uzivatelDTO> getUzivatelById(@PathVariable Long id) {
-        uzivatelDTO uzivatel = uzivatelService.getUzivatel(id);
-        if (uzivatel != null) {
-            return new ResponseEntity<>(uzivatel, HttpStatus.OK);
+    @PostMapping("/api/login")
+    public ResponseEntity<?> login(@RequestBody uzivatelDTO userLogin) {
+        boolean isAuthenticated = uzivatelService.authenticate(userLogin.getUsername(), userLogin.getHeslo());
+        if (isAuthenticated) {
+            return ResponseEntity.ok().build();
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-*/
+
+
     // vytvorenie uzivatela
     @PostMapping("/api/uzivatel")
     public Long createUzivatel(@RequestBody uzivatelDTO uzivatel) {

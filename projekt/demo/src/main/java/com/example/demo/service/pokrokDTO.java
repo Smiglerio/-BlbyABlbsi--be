@@ -1,4 +1,6 @@
 package com.example.demo.service;
+import com.example.demo.persistence.cvicenieEntity;
+import com.example.demo.persistence.uzivatelEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +12,8 @@ import java.util.Date;
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
 public class pokrokDTO {
-    private Long cvicenieid;
+    private Long pokrokid;
     private Date datum;
-    private Long userid;
+    private uzivatelEntity uzivatelEntity;
+    private cvicenieEntity cvicenieEntity;
 }

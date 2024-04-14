@@ -13,13 +13,21 @@ import java.util.Date;
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
 @Table(name = "pokrok")
 public class pokrokEntity {
+    @Column(name="pokrokid")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long pokrokid;
+    @ManyToOne
+    /*@Column(name="cvicenieid")*/
     @JoinColumn(name="cvicenieid", nullable = false)
-    private Long cvicenieid;
+    private cvicenieEntity cvicenieEntity;
+
+    //TODO bohvie, čo to je ale mal by som to zmeniť
     @Column(name="datum")
     private Date datum;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name="userid", nullable = false)
-    private Long userid;
+
+    /*@Column(name="userid")*/
+    @ManyToOne
+    @JoinColumn(name= "userid", nullable = false)
+    private uzivatelEntity uzivatelEntity;
 }

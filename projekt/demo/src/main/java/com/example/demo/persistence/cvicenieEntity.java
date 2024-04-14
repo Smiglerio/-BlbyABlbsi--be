@@ -19,8 +19,6 @@ public class cvicenieEntity {
     private Long cvidenieid;
     @Column(name="nazovcviku")
     private String nazovCviku;
-    @JoinColumn(name="planid",nullable = false)
-    private Long planid;
     @Column(name="popiscviku")
     private String popisCviku;
     @Column(name="narocnostcviku")

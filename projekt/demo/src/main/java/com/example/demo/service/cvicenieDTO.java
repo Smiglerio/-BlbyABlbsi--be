@@ -13,7 +13,6 @@ import java.util.Date;
 public class cvicenieDTO {
     private Long cvidenieid;
     private String nazovCviku;
-    private Long planid;
     private String popisCviku;
     private String narocnostCviku;
 }

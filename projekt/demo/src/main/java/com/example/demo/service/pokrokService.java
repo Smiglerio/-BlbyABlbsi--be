@@ -2,10 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.persistence.pokrokEntity;
 import com.example.demo.persistence.pokrokRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jakarta.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -81,8 +81,11 @@ public class pokrokService {
     private pokrokDTO mapEntityToDto(pokrokEntity entity) {
         pokrokDTO dto = new pokrokDTO();
         dto.setCvicenieid(entity.getCvicenieid());
-        dto.setDatum(entity.getDatum());
+        dto.setDatum(entity.getDatum().toString()); // Prevedie dátum na reťazec
         dto.setUserid(entity.getUserid());
         return dto;
     }
+
+
+
 }

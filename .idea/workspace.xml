@@ -4,41 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="Oprava po Adamovi">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/pokrokEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/pokrokRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/treningovePlanyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/treningovePlanyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/pokrokDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25__3__2024_12_41_[Changes]1/shelved.patch" beforeDir="false" />
+    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="testy pre kontrollery -1&#10;upravena DTO + service">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25__3__2024_12_41__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25__3__2024_12_41__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25__3__2024_12_41__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7__4__2024_14_40_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7__4__2024_14_40__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,6 +37,26 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;adamhrinzh&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="Smiglerio" />
+        <option name="repository" value="-BlbyABlbsi--be" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2822865d-5dfe-462f-ac64-41b45212aa77" />
+        <option name="url" value="https://github.com/Smiglerio/-BlbyABlbsi--be.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -72,6 +79,13 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;JUnit.com.example.demo.controller in demo.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.cvicenieControllerTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.pokrokControllerTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.treningovePlanyControllerTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.treningovePlanyControllerTests.testCreateTreningovyPlan.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.treningovePlanyControllerTests.testUpdateTreningovyPlan.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.uzivatelControllerTests.executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -82,10 +96,10 @@
     &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;pokusOmyl&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;74adam&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mbend/IdeaProjects/blbyablbsi-be&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Adam/IdeaProjects/-BlbyABlbsi--be/projekt/demo/src/test/java/com/example/demo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -104,11 +118,91 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adam\IdeaProjects\-BlbyABlbsi--be\projekt\demo\src\test\java\com\example\demo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adam\IdeaProjects\-BlbyABlbsi--be\projekt\demo\src\main\java\com\example\demo\service" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.demo" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.com.example.demo.controller in demo">
+    <configuration name="com.example.demo.controller in demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.controller" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cvicenieControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.cvicenieControllerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pokrokControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.pokrokControllerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="treningovePlanyControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.treningovePlanyControllerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="uzivatelControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.demo.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.uzivatelControllerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="demo" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.demo.DemoApplication" />
@@ -116,13 +210,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
-      </set>
-    </attachedChunks>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.com.example.demo.controller in demo" />
+        <item itemvalue="JUnit.cvicenieControllerTests" />
+        <item itemvalue="JUnit.pokrokControllerTests" />
+        <item itemvalue="JUnit.treningovePlanyControllerTests" />
+        <item itemvalue="JUnit.uzivatelControllerTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -139,6 +235,7 @@
       <workItem from="1712390391582" duration="2187000" />
       <workItem from="1712493534970" duration="4725000" />
       <workItem from="1712498292387" duration="1915000" />
+      <workItem from="1713175862093" duration="513000" />
     </task>
     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
       <option name="closed" value="true" />
@@ -164,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711368198858</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testy pre kontrollery -1&#10;upravena DTO + service">
+      <option name="closed" value="true" />
+      <created>1713171973883</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713171973883</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +279,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Základné prepojenie s Frontendom" />
     <MESSAGE value="Oprava po Adamovi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Oprava po Adamovi" />
+    <MESSAGE value="testy pre kontrollery -1&#10;upravena DTO + service" />
+    <option name="LAST_COMMIT_MESSAGE" value="testy pre kontrollery -1&#10;upravena DTO + service" />
   </component>
 </project>

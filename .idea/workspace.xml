@@ -5,38 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="Pridanie authentifikacie">
-      <change afterPath="$PROJECT_DIR$/projekt/demo/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/cvicenieController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/treningovePlanyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/963881fd-d504-42d5-b77d-84fb43796f11/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a95b2a3b-dd88-485c-b388-71ad39d0676c/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6524afc-3fbd-4ef9-b9ba-02e456d3d741.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6524afc-3fbd-4ef9-b9ba-02e456d3d741.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b6524afc-3fbd-4ef9-b9ba-02e456d3d741/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b6524afc-3fbd-4ef9-b9ba-02e456d3d741/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7__4__2024_14_40_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7__4__2024_14_40__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/cvicenieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/cvicenieController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/treningovePlanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/treningovePlanyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/pokrokEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/pokrokEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/treningovePlanyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/treningovePlanyEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/pokrokDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/pokrokDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/cvicenieEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/cvicenieEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/pokrokEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/pokrokEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/treningovePlanyEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/treningovePlanyEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/cvicenieDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/cvicenieDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/pokrokDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/pokrokDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
+    </list>
+    <list id="b8f9f914-f6a5-48e3-a872-32f4816feac6" name="Changes by marek" comment="">
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,15 +33,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="pokusOmyl" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -63,6 +50,16 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java">
+      <ranges>
+        <range start1="9" end1="9" start2="9" end2="11" changelist="956d7de9-285b-41e2-8c63-45164a3a88e5" />
+        <range start1="10" end1="10" start2="12" end2="13" changelist="b8f9f914-f6a5-48e3-a872-32f4816feac6" />
+        <range start1="16" end1="17" start2="19" end2="19" changelist="956d7de9-285b-41e2-8c63-45164a3a88e5" />
+        <range start1="50" end1="50" start2="52" end2="70" changelist="b8f9f914-f6a5-48e3-a872-32f4816feac6" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -92,7 +89,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;treningPlanBranch&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;treningBranch&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/simon/IdeaProjects/library-be&quot;,
@@ -155,6 +152,9 @@
       <workItem from="1713026237863" duration="5587000" />
       <workItem from="1713032247444" duration="8287000" />
       <workItem from="1713080719681" duration="8958000" />
+      <workItem from="1713467911365" duration="2357000" />
+      <workItem from="1713516307329" duration="3187000" />
+      <workItem from="1713553309603" duration="1372000" />
     </task>
     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
       <option name="closed" value="true" />

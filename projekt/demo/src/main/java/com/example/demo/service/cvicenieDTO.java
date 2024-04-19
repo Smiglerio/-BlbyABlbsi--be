@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
 public class cvicenieDTO {
-    private Long cvidenieid;
+    private Long cvicenieid;
     private String nazovCviku;
     private String popisCviku;
     private String narocnostCviku;

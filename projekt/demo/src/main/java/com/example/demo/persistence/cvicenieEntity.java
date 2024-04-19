@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data // automaticky doplni gettre, setre , toString , ...
@@ -16,7 +18,7 @@ public class cvicenieEntity {
     @Column(name="cvicenieid")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long cvidenieid;
+    private Long cvicenieid;
     @Column(name="nazovcviku")
     private String nazovCviku;
     @Column(name="popiscviku")
@@ -30,5 +32,5 @@ public class cvicenieEntity {
             joinColumns = @JoinColumn(name = "cvicenieid"),
             inverseJoinColumns = @JoinColumn(name = "planid")
     )
-    private List<treningovePlanyEntity> cvicenietp;
+    private Set<treningovePlanyEntity> cvicenietp;
 }

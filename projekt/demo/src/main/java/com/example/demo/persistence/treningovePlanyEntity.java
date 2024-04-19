@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data // automaticky doplni gettre, setre , toString , ...
@@ -21,4 +22,13 @@ public class treningovePlanyEntity {
     private String nazov;
     @Column(name="popis")
     private String popis;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "cvicenie_treningoveplany",
+            joinColumns = @JoinColumn(name = "planid"),
+            inverseJoinColumns = @JoinColumn(name = "cvicenieid")
+    )
+    private List<cvicenieEntity> cvicenia;
 }

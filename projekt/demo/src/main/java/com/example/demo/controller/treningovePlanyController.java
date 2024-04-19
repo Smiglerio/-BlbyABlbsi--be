@@ -9,6 +9,8 @@ import com.example.demo.service.treningovyPlanDTO;
 
 // pridane
 import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 @RestController
@@ -30,5 +32,10 @@ public class treningovePlanyController {
     @GetMapping("api/treningovyPlan/list")
     public ArrayList<treningovyPlanDTO> getAllTreningovePlany(){
         return treningovyPlanService.getAllTreningovePlany();
+    }
+
+    @GetMapping("/api/treningovyPlan/cvicenia/{id}")
+    public List<cvicenieDTO> getCviceniaByPlan(@PathVariable Long id) {
+        return treningovyPlanService.getCviceniaByPlan(id);
     }
 }

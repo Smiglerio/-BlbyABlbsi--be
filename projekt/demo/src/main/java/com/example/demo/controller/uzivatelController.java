@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
-
-
 @RestController
 @RequestMapping("fitness")
 public class uzivatelController {
@@ -32,7 +30,6 @@ public class uzivatelController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-
 
     // vytvorenie uzivatela
     @PostMapping("/api/uzivatel")

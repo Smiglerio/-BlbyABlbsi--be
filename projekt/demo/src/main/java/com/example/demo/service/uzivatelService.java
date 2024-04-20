@@ -1,4 +1,7 @@
 package com.example.demo.service;
+import ch.qos.logback.classic.encoder.JsonEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.demo.persistence.uzivatelRepository;
 import com.example.demo.service.uzivatelDTO;
@@ -11,8 +14,12 @@ import java.util.Optional;
 
 @Service
 public class uzivatelService {
+
     @Autowired
     private uzivatelRepository uzivatelRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     public uzivatelDTO getUzivatel(Long id) {
         Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
@@ -44,6 +51,7 @@ public class uzivatelService {
         uzivatelEntity.setPohlavie(dto.getPohlavie());
         uzivatelEntity.setUserId(dto.getUserId());
         uzivatelEntity.setVek(dto.getVek());
+        this.passwordEncoder.encode(dto.getHeslo());
         uzivatelRepository.save(uzivatelEntity);
         return uzivatelEntity.getUserId();
     }

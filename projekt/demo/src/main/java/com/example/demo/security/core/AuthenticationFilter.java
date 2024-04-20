@@ -1,29 +1,27 @@
-package sk.umb.prg3.library.security.core;
+package com.example.demo.security.core;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-import sk.umb.prg3.library.security.service.AuthenticationService;
-import sk.umb.prg3.library.security.service.UserRolesDto;
+import com.example.demo.security.service.AuthenticationService;
+import com.example.demo.security.service.UserRolesDto;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class LibraryAuthenticationFilter extends OncePerRequestFilter {
+public class AuthenticationFilter extends OncePerRequestFilter {
 
     private final AuthenticationService authenticationService;
 
-    public LibraryAuthenticationFilter(AuthenticationService authenticationService) {
+    public AuthenticationFilter(AuthenticationService authenticationService) {
         this.authenticationService = authenticationService;
     }
 

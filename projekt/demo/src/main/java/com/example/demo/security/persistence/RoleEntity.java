@@ -1,4 +1,4 @@
-package sk.umb.prg3.library.security.persistence;
+package com.example.demo.security.persistence;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

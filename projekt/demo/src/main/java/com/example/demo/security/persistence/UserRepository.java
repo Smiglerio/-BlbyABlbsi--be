@@ -1,4 +1,4 @@
-package sk.umb.prg3.library.security.persistence;
+package com.example.demo.security.persistence;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

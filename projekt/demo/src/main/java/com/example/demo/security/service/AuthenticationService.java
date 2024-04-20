@@ -1,11 +1,11 @@
-package sk.umb.prg3.library.security.service;
+package com.example.demo.security.service;
 
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sk.umb.prg3.library.security.persistence.*;
+import com.example.demo.security.persistence.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

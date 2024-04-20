@@ -40,4 +40,7 @@ public class uzivatelEntity {
             inverseJoinColumns = @JoinColumn(name = "planid")
     )
     private List<treningovePlanyEntity> usertp;
+
+    public uzivatelEntity(String meno, String priezvisko, String username, String encode, int vek, int vaha, int vyska, String pohlavie, Long userId) {
+    }
 }

@@ -1,12 +1,12 @@
-package sk.umb.prg3.library.security.controller;
+package com.example.demo.security.controller;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import sk.umb.prg3.library.security.service.AuthenticationService;
-import sk.umb.prg3.library.security.service.UserRolesDto;
+import com.example.demo.security.service.AuthenticationService;
+import com.example.demo.security.service.UserRolesDto;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

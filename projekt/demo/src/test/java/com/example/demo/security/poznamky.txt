@@ -1,0 +1,19 @@
+Funkcie testované v súbore
+-------------------------------------
+
+Test úspešného prihlásenia:
+Overuje, či kontrolór riadne spracuje autentifikačný požiadavok s platnými prihlasovacími údajmi.
+Očakáva sa správna odpoveď s HTTP statusom OK a správnym tokenom autentifikácie v hlavičke odpovede.
+
+
+Použité nástroje a knižnice
+-------------------------------------
+JUnit 5: Rámec na písanie a vykonávanie testov jednotiek.
+Mockito: Knižnica na vytváranie a konfiguráciu mockov pre testovanie.
+SpringBootTest: Anotácia na konfiguráciu testového prostredia Spring Boot.
+
+
+Štruktúra súboru
+-------------------------------------
+setUp(): Metóda na nastavenie prostredia pre každý test, vrátane vytvorenia mockov pre AuthenticationService a HttpServletResponse.
+testLoginSuccess(): Testuje úspešné prihlásenie s platnými prihlasovacími údajmi.

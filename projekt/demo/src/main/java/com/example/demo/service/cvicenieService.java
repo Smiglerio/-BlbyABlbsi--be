@@ -29,6 +29,8 @@ public class cvicenieService {
         dto.setPopisCviku(entity.getPopisCviku());
         dto.setCvicenieid(entity.getCvicenieid());
         dto.setIdTypCvicenia(entity.getIdTypCvicenia().getIdTypCvicenia());
+        dto.setNarocnost(entity.getIdTypCvicenia().getNarocnost());
+        dto.setPocetOpakovani(entity.getIdTypCvicenia().getPocetOpakovani());
         return dto;
     }
 
@@ -51,10 +53,9 @@ public class cvicenieService {
         for(cvicenieEntity entity : cviceniaIterable){
             cvicenieDTO dto = new cvicenieDTO();
             dto.setCvicenieid(entity.getCvicenieid());
-            /*dto.setNarocnostCviku(entity.getNarocnostCviku());*/
-            if (entity.getIdTypCvicenia() != null) {
-                dto.setIdTypCvicenia(entity.getIdTypCvicenia().getIdTypCvicenia());
-            }
+            dto.setIdTypCvicenia(entity.getIdTypCvicenia().getIdTypCvicenia());
+            dto.setNarocnost(entity.getIdTypCvicenia().getNarocnost());
+            dto.setPocetOpakovani(entity.getIdTypCvicenia().getPocetOpakovani());
             dto.setPopisCviku(entity.getPopisCviku());
             dto.setNazovCviku(entity.getNazovCviku());
             cviceniaList.add(dto);

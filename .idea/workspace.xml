@@ -4,31 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="Pridanie authentifikacie">
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/typCviceniaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7537362e-7325-4661-b524-2206f2e18b91.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17__4__2024_19_44__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17__4__2024_19_44__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17__4__2024_19_44__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17__4__2024_19_44__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17__4__2024_19_49__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17__4__2024_19_49__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20__4__2024_14_35__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20__4__2024_14_35__Changes_.xml" afterDir="false" />
+    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="pridanie typCvicenia controlleru,dto,repo,entity. Rozdelenie tabulky cvicenia na cvicenie a typCvicenia">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06_[Changes]/uzivatelController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06_[Changes]/uzivatelRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06_[Changes]/uzivatelService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14__4__2024_21_06__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" afterDir="false" />
+    </list>
+    <list id="dede412f-ca21-4668-bcaf-90a0afe787da" name="Changes by marek" comment="">
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/cvicenieEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/cvicenieEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/cvicenieDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/cvicenieDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,42 +56,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.DemoApplication.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "database.data.extractors.current.export.id": "SQL Inserts",
-    "git-widget-placeholder": "treningTypBranchPartDva",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/simon/IdeaProjects/library-be",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "Docker",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;treningTypBranchPartDva&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/simon/IdeaProjects/library-be&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.demo" />
@@ -147,6 +134,7 @@
       <workItem from="1713026237863" duration="5587000" />
       <workItem from="1713032247444" duration="8287000" />
       <workItem from="1713080719681" duration="8958000" />
+      <workItem from="1713726667167" duration="1473000" />
     </task>
     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
       <option name="closed" value="true" />
@@ -188,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712522020592</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="pridanie typCvicenia controlleru,dto,repo,entity. Rozdelenie tabulky cvicenia na cvicenie a typCvicenia">
+      <option name="closed" value="true" />
+      <created>1713724857664</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713724857665</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +196,8 @@
     <MESSAGE value="Oprava po Adamovi" />
     <MESSAGE value="Pridanie Entit a DTO - Šimon" />
     <MESSAGE value="Pridanie authentifikacie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pridanie authentifikacie" />
+    <MESSAGE value="pridanie typCvicenia controlleru,dto,repo,entity. Rozdelenie tabulky cvicenia na cvicenie a typCvicenia" />
+    <option name="LAST_COMMIT_MESSAGE" value="pridanie typCvicenia controlleru,dto,repo,entity. Rozdelenie tabulky cvicenia na cvicenie a typCvicenia" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

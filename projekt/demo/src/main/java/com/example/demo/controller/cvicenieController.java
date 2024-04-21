@@ -21,14 +21,8 @@ public class cvicenieController {
     }
 
     @GetMapping("/api/cvicenie/{id}")
-    public cvicenieDTO getCvicenie(@PathVariable Long id){
-        return cvicenieService.getCvicenie(id);
-    }
+    public cvicenieDTO getCvicenie(@PathVariable Long id){ return cvicenieService.getCvicenie(id); }
 
     @GetMapping("api/cvicenie/list")
-    public ArrayList<cvicenieDTO> getAllCvicenia(){
-        return cvicenieService.getAllCvicenie();
-    }
-
-
+    public ArrayList<cvicenieDTO> getAllCvicenia(){ return cvicenieService.getAllCvicenie(); }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="blbyABlbsiDB@localhost [2]">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>mdy</DateStyle>
       <IntrospectionStateNumber>1596</IntrospectionStateNumber>
@@ -4824,8 +4824,7 @@ true posixrules
       <Comment>standard public schema</Comment>
       <Current>1</Current>
       <IntrospectionStateNumber>1596</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-04-21.19:51:44.247</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-04-21.17:51:44</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-04-21.17:51:44</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4833,7 +4832,7 @@ true posixrules
     <sequence id="265" parent="264" name="cvicenie_cvicenieid_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>26396</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1575</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4841,7 +4840,7 @@ true posixrules
     <sequence id="266" parent="264" name="pokrok_pokrokid_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>26410</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1577</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4849,7 +4848,7 @@ true posixrules
     <sequence id="267" parent="264" name="roles_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>25502</ObjectId>
-      <SequenceIdentity>1(1)+50</SequenceIdentity>
+      <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1189</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4857,7 +4856,7 @@ true posixrules
     <sequence id="268" parent="264" name="token_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>25503</ObjectId>
-      <SequenceIdentity>1(1)+50</SequenceIdentity>
+      <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1190</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4865,7 +4864,7 @@ true posixrules
     <sequence id="269" parent="264" name="treningoveplany_planid_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>26427</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1580</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4873,7 +4872,7 @@ true posixrules
     <sequence id="270" parent="264" name="typ_cvicenia_id_typ_cvicenia_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>26436</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1581</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4881,7 +4880,7 @@ true posixrules
     <sequence id="271" parent="264" name="users_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>25504</ObjectId>
-      <SequenceIdentity>1(1)+50</SequenceIdentity>
+      <SequenceIdentity>1+50</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1191</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
@@ -4889,7 +4888,7 @@ true posixrules
     <sequence id="272" parent="264" name="uzivatel_userid_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>26458</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1585</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>

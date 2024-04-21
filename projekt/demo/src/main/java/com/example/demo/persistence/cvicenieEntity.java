@@ -23,8 +23,8 @@ public class cvicenieEntity {
     private String nazovCviku;
     @Column(name="popiscviku")
     private String popisCviku;
-    @Column(name="narocnostcviku")
-    private String narocnostCviku;
+   /* @Column(name="narocnostcviku")
+    private String narocnostCviku;*/
 
     @ManyToMany
     @JoinTable(
@@ -33,4 +33,7 @@ public class cvicenieEntity {
             inverseJoinColumns = @JoinColumn(name = "planid")
     )
     private Set<treningovePlanyEntity> cvicenietp;
+    @ManyToOne
+    @JoinColumn(name="idTypCvicenia")
+    private typCviceniaEntity idTypCvicenia;
 }

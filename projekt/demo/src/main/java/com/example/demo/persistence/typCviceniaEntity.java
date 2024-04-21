@@ -1,19 +1,24 @@
-package com.example.demo.service;
+package com.example.demo.persistence;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
+@Entity
 @Data // automaticky doplni gettre, setre , toString , ...
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
-public class cvicenieDTO {
-    private Long cvicenieid;
-    private String nazovCviku;
-    private String popisCviku;
-   /* private String narocnostCviku;*/
+@Table(name = "typCvicenia")
+public class typCviceniaEntity {
+    @Column(name = "idTypCvicenia")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTypCvicenia;
+    @Column(name = "narocnost")
+    private String narocnost;
+    @Column(name = "pocetOpakovani")
+    private int pocetOpakovani;
+
+
 }

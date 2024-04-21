@@ -61,7 +61,8 @@ public class treningovyPlanService {
                 dto.setCvicenieid(cvicenie.getCvicenieid());
                 dto.setNazovCviku(cvicenie.getNazovCviku());
                 dto.setPopisCviku(cvicenie.getPopisCviku());
-                dto.setNarocnostCviku(cvicenie.getNarocnostCviku());
+                dto.setIdTypCvicenia(cvicenie.getIdTypCvicenia().getIdTypCvicenia());
+                /*dto.setNarocnostCviku(cvicenie.getNarocnostCviku());*/
                 cviceniaList.add(dto);
             }
         }

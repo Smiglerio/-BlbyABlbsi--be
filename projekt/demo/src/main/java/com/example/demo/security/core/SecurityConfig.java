@@ -55,7 +55,10 @@ public class SecurityConfig {
                 .requestMatchers("/fitness/api/treningovyPlan/{id}")
                 .requestMatchers("/fitness/api/treningovyPlan/list")
                 .requestMatchers("/fitness/api/treningovyPlan/cvicenia/{id}")
-                .requestMatchers("/fitness/api/login");
+                .requestMatchers("/fitness/api/login")
+                .requestMatchers("/fitness/api/typCvicenia")
+                .requestMatchers("/fitness/api/typCvicenia/{id}")
+                .requestMatchers("/fitness/api/typCvicenia/list");
     }
 
 }

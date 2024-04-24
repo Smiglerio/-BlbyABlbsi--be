@@ -1,5 +1,7 @@
 package com.example.demo.security.core;
 
+import com.example.demo.service.uzivatelDTO;
+import com.example.demo.service.uzivatelService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,10 +21,10 @@ import java.util.stream.Collectors;
 
 public class AuthenticationFilter extends OncePerRequestFilter {
 
-    private final AuthenticationService authenticationService;
+    private final uzivatelService uzivatelService;
 
-    public AuthenticationFilter(AuthenticationService authenticationService) {
-        this.authenticationService = authenticationService;
+    public AuthenticationFilter(uzivatelService uzivatelService) {
+        this.uzivatelService = uzivatelService;
     }
 
     @Override
@@ -34,13 +36,13 @@ public class AuthenticationFilter extends OncePerRequestFilter {
         }
 
         String token = authHeader.substring("Bearer".length()).trim();
-        UserRolesDto userRoles = authenticationService.authenticate(token);
+        uzivatelDTO user = uzivatelService.getUzivatelFromToken(token);
 
-        List<SimpleGrantedAuthority> roles = userRoles.getRoles().stream().map(
+        List<SimpleGrantedAuthority> roles = user.getRoles().stream().map(
                 role -> new SimpleGrantedAuthority(role)).collect(Collectors.toList());
 
         UsernamePasswordAuthenticationToken auth
-                = new UsernamePasswordAuthenticationToken(userRoles.getUserName(), null, roles);
+                = new UsernamePasswordAuthenticationToken(user.getUsername(), null, roles);
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         filterChain.doFilter(request, response);

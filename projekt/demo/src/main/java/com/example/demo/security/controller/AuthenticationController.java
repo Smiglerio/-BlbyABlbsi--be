@@ -13,7 +13,6 @@ import java.util.Base64;
 import java.util.Optional;
 
 @RestController
-//@CrossOrigin("*")
 public class AuthenticationController {
 
     private final String AUTHORIZATION_HEADER = "Authorization";
@@ -28,12 +27,6 @@ public class AuthenticationController {
             response.setStatus(HttpStatus.FORBIDDEN.value());
             return;
         }
-
-        String[] credentials = credentialsDecode(authentication.get());
-        String token = authenticationService.authenticate(credentials[0], credentials[1]);
-
-        response.setStatus(HttpStatus.OK.value());
-        response.addHeader(AUTHORIZATION_HEADER, "Bearer " + token);
     }
 
     private static String[] credentialsDecode(String authorization) {
@@ -43,11 +36,11 @@ public class AuthenticationController {
         return  credentials.split(":", 2);
     }
 
-    @GetMapping("/api/authentication")
+/*    @GetMapping("/api/authentication")
     public UserRolesDto getRoles(@RequestHeader(HttpHeaders.AUTHORIZATION) String auth) {
         String token = auth.substring("Bearer".length()).trim();
         return authenticationService.authenticate(token);
-    }
+    }*/
 
     @DeleteMapping("/api/authentication")
     public void logout(@RequestHeader(value = AUTHORIZATION_HEADER, required = true) Optional<String> authentication) {

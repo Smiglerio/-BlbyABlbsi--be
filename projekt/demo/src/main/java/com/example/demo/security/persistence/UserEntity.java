@@ -1,5 +1,6 @@
 package com.example.demo.security.persistence;
 
+import com.example.demo.persistence.RoleEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

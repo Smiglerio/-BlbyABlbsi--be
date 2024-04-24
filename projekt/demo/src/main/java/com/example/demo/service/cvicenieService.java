@@ -1,4 +1,5 @@
 package com.example.demo.service;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import com.example.demo.persistence.cvicenieRepository;
 import com.example.demo.persistence.treningovePlanyRepository;
@@ -32,6 +33,7 @@ public class cvicenieService {
         return dto;
     }
 
+//    @PreAuthorize()
     public Long createCvicenie(cvicenieDTO dto){
         cvicenieEntity entity = new cvicenieEntity();
         entity.setCvicenieid(dto.getCvicenieid());

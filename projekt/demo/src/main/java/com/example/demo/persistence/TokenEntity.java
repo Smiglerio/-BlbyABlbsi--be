@@ -1,4 +1,4 @@
-package com.example.demo.security.persistence;
+package com.example.demo.persistence;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,7 +23,7 @@ public class TokenEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private UserEntity user;
+    private uzivatelEntity user;
 
     @Column(name = "valid_until", columnDefinition = "TIMESTAMP")
     private LocalDateTime createdAt;

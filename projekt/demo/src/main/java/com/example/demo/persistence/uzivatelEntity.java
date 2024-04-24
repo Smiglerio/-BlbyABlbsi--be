@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data // automaticky doplni gettre, setre , toString , ...
@@ -34,6 +36,9 @@ public class uzivatelEntity {
     private Long userId;
 
     @ManyToMany
+    private Set<RoleEntity> roles = new HashSet<>();
+
+    @ManyToMany
     @JoinTable(
             name = "usertp",
             joinColumns = @JoinColumn(name = "userid"),
@@ -41,6 +46,4 @@ public class uzivatelEntity {
     )
     private List<treningovePlanyEntity> usertp;
 
-    public uzivatelEntity(String meno, String priezvisko, String username, String encode, int vek, int vaha, int vyska, String pohlavie, Long userId) {
-    }
 }

@@ -8,6 +8,10 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.HashSet;
+import java.util.Set;
+
 @Data // automaticky doplni gettre, setre , toString , ...
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
@@ -21,4 +25,5 @@ public class uzivatelDTO {
     private int vyska;
     private String pohlavie;
     private Long userId;
+    private Set<String> roles = new HashSet<>();
 }

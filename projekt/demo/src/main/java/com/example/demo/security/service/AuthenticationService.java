@@ -1,5 +1,7 @@
 package com.example.demo.security.service;
 
+import com.example.demo.persistence.TokenEntity;
+import com.example.demo.persistence.TokenRepository;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,10 +11,6 @@ import com.example.demo.security.persistence.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthenticationService {
@@ -29,7 +27,7 @@ public class AuthenticationService {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-    @Transactional
+/*    @Transactional
     public String authenticate(String username, String password) {
         Optional<UserEntity> optionalUser = userRepository.findByUsername(username);
 
@@ -48,7 +46,7 @@ public class AuthenticationService {
         token.setCreatedAt(LocalDateTime.now());
         tokenRepository.save(token);
 
-        return token.getToken();
+         return token.getToken();
     }
 
     @Transactional
@@ -67,7 +65,7 @@ public class AuthenticationService {
                                      .collect(Collectors.toSet());
 
         return new UserRolesDto(optionalToken.get().getUser().getUsername(), roleNames);
-    }
+    }*/
 
     private void validateTokenExpiration(TokenEntity token) {
         LocalDateTime now = LocalDateTime.now();

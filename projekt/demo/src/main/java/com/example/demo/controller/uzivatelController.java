@@ -1,6 +1,4 @@
 package com.example.demo.controller;
-import com.example.demo.security.persistence.UserEntity;
-import com.example.demo.security.persistence.UserRepository;
 import com.example.demo.security.service.AuthenticationService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,8 +21,6 @@ public class uzivatelController {
     private uzivatelService uzivatelService;
     @Autowired
     private AuthenticationService authenticationService;
-    @Autowired
-    private UserRepository userRepository;
 
     @GetMapping("/api/uzivatel/{id}")
     public uzivatelDTO getUzivatel(@PathVariable Long id) {

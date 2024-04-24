@@ -7,7 +7,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.demo.security.persistence.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -15,14 +14,12 @@ import java.time.temporal.ChronoUnit;
 @Service
 public class AuthenticationService {
     private static final int TOKEN_VALIDITY_IN_MINUTES = 15;
-    private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
     // https://bcrypt-generator.com/, round 1
 
 
-    public AuthenticationService(UserRepository userRepository, TokenRepository tokenRepository) {
-        this.userRepository = userRepository;
+    public AuthenticationService(TokenRepository tokenRepository) {
         this.tokenRepository = tokenRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }

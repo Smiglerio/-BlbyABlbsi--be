@@ -1,5 +1,6 @@
 package com.example.demo.security.core;
 
+import com.example.demo.service.uzivatelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,12 +20,11 @@ import com.example.demo.security.service.AuthenticationService;
 public class SecurityConfig {
 
     @Autowired
-    private AuthenticationService authenticationService;
+    private uzivatelService uzivatelService;
 
     @Autowired
     private AuthenticationEntryPoint authEntryPoint;
 
-    @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -38,7 +38,7 @@ public class SecurityConfig {
 //        http.exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage("/error/accedd-denied"));
         http.exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint));
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-        http.addFilterBefore(new AuthenticationFilter(authenticationService), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(new AuthenticationFilter(uzivatelService), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

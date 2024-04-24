@@ -1,11 +1,14 @@
 package com.example.demo.service;
-import com.example.demo.persistence.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
+import com.example.demo.persistence.cvicenieRepository;
+import com.example.demo.persistence.treningovePlanyRepository;
+import com.example.demo.persistence.treningovePlanyEntity;
 import com.example.demo.service.cvicenieDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.example.demo.persistence.cvicenieEntity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,8 +19,6 @@ public class cvicenieService {
     private cvicenieRepository cvicenieRepository;
     @Autowired
     private treningovePlanyRepository treningovePlanyRepository;
-    @Autowired
-    private typCviceniaRepository typCviceniaRepository;
     public cvicenieDTO getCvicenie(Long id) {
         Optional<cvicenieEntity> opt = cvicenieRepository.findById(id);
         if (opt.isEmpty()) {
@@ -26,25 +27,20 @@ public class cvicenieService {
         cvicenieEntity entity = opt.get();
         cvicenieDTO dto = new cvicenieDTO();
         dto.setNazovCviku(entity.getNazovCviku());
+        dto.setNarocnostCviku(entity.getNarocnostCviku());
         dto.setPopisCviku(entity.getPopisCviku());
         dto.setCvicenieid(entity.getCvicenieid());
-        dto.setIdTypCvicenia(entity.getIdTypCvicenia().getIdTypCvicenia());
-        dto.setNarocnost(entity.getIdTypCvicenia().getNarocnost());
-        dto.setPocetOpakovani(entity.getIdTypCvicenia().getPocetOpakovani());
         return dto;
     }
 
+//    @PreAuthorize()
     public Long createCvicenie(cvicenieDTO dto){
         cvicenieEntity entity = new cvicenieEntity();
-        if (dto.getIdTypCvicenia() != null) {
-            Optional<typCviceniaEntity> typCviceniaOptional = typCviceniaRepository.findById(dto.getIdTypCvicenia());
-            typCviceniaOptional.ifPresent(entity::setIdTypCvicenia);
-        }
+        entity.setCvicenieid(dto.getCvicenieid());
+        entity.setNarocnostCviku(dto.getNarocnostCviku());
         entity.setNazovCviku(dto.getNazovCviku());
         entity.setPopisCviku(dto.getPopisCviku());
-        cvicenieRepository.save(entity);
         return entity.getCvicenieid();
-
     }
 
     public ArrayList<cvicenieDTO> getAllCvicenie(){
@@ -53,13 +49,13 @@ public class cvicenieService {
         for(cvicenieEntity entity : cviceniaIterable){
             cvicenieDTO dto = new cvicenieDTO();
             dto.setCvicenieid(entity.getCvicenieid());
-            dto.setIdTypCvicenia(entity.getIdTypCvicenia().getIdTypCvicenia());
-            dto.setNarocnost(entity.getIdTypCvicenia().getNarocnost());
-            dto.setPocetOpakovani(entity.getIdTypCvicenia().getPocetOpakovani());
+            dto.setNarocnostCviku(entity.getNarocnostCviku());
             dto.setPopisCviku(entity.getPopisCviku());
             dto.setNazovCviku(entity.getNazovCviku());
             cviceniaList.add(dto);
         }
         return cviceniaList;
     }
+
+
 }

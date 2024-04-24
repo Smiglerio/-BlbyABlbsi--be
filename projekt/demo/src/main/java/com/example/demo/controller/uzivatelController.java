@@ -1,7 +1,6 @@
 package com.example.demo.controller;
-import com.example.demo.security.persistence.UserEntity;
-import com.example.demo.security.persistence.UserRepository;
 import com.example.demo.security.service.AuthenticationService;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +21,6 @@ public class uzivatelController {
     private uzivatelService uzivatelService;
     @Autowired
     private AuthenticationService authenticationService;
-    @Autowired
-    private UserRepository userRepository;
 
     @GetMapping("/api/uzivatel/{id}")
     public uzivatelDTO getUzivatel(@PathVariable Long id) {
@@ -31,13 +28,9 @@ public class uzivatelController {
     }
 
     @PostMapping("/api/login")
-    public ResponseEntity<?> login(@RequestBody uzivatelDTO userLogin) {
-        boolean isAuthenticated = uzivatelService.authenticate(userLogin.getUsername(), userLogin.getHeslo());
-        if (isAuthenticated) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
+    public String login(@RequestBody uzivatelDTO userLogin, @RequestHeader(HttpHeaders.AUTHORIZATION) String auth) {
+        String token = uzivatelService.authenticate(userLogin.getUsername(), userLogin.getHeslo());
+        return token;
     }
 
     // vytvorenie uzivatela
@@ -63,19 +56,4 @@ public class uzivatelController {
     public boolean deleteUzivatel(@PathVariable Long id) {
         return uzivatelService.deleteUzivatel(id);
     }
-
-    /*
-    public String PostLogin(uzivatelDTO uzivatel) {
-        String token = authenticationService.authenticate(uzivatel.getUsername(), uzivatel.getHeslo());
-
-        if (token != null){
-            Optional<UserEntity> userOptional = userRepository.findByUsername(uzivatel.getUsername());
-            if (userOptional.isPresent()) {
-                return token;
-            }
-        }
-
-    }
-    */
-
 }

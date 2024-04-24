@@ -1,16 +1,16 @@
 package com.example.demo.service;
-import ch.qos.logback.classic.encoder.JsonEncoder;
+import com.example.demo.persistence.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.example.demo.persistence.uzivatelRepository;
-import com.example.demo.service.uzivatelDTO;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import com.example.demo.persistence.uzivatelEntity;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class uzivatelService {
@@ -19,7 +19,11 @@ public class uzivatelService {
     private uzivatelRepository uzivatelRepository;
 
     @Autowired
-    private PasswordEncoder passwordEncoder;
+    private TokenRepository tokenRepository;
+
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
     public uzivatelDTO getUzivatel(Long id) {
         Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
@@ -40,6 +44,30 @@ public class uzivatelService {
         return dto;
     }
 
+    public uzivatelDTO getUzivatelFromToken(String token) {
+        Optional<TokenEntity> optToken = tokenRepository.findByToken(token);
+        if (optToken.isEmpty()) {
+            throw new RuntimeException("Authentication failed!");
+        }
+        TokenEntity entityToken = optToken.get();
+        uzivatelEntity entity = entityToken.getUser();
+        uzivatelDTO dto = new uzivatelDTO();
+        dto.setMeno(entity.getMeno());
+        dto.setPriezvisko(entity.getPriezvisko());
+        dto.setUserId(entity.getUserId());
+        dto.setUsername(entity.getUsername());
+        dto.setHeslo(entity.getMeno());
+        dto.setVaha(entity.getVaha());
+        dto.setVek(entity.getVek());
+        dto.setVyska(entity.getVyska());
+        dto.setPohlavie(entity.getPohlavie());
+
+        for (RoleEntity role : entity.getRoles()) {
+            dto.getRoles().add(role.getRoleName());
+        }
+        return dto;
+    }
+
     public Long createUzivatel(uzivatelDTO dto) {
         uzivatelEntity uzivatelEntity = new uzivatelEntity();
         uzivatelEntity.setMeno(dto.getMeno());
@@ -51,7 +79,7 @@ public class uzivatelService {
         uzivatelEntity.setPohlavie(dto.getPohlavie());
         uzivatelEntity.setUserId(dto.getUserId());
         uzivatelEntity.setVek(dto.getVek());
-        this.passwordEncoder.encode(dto.getHeslo());
+        this.passwordEncoder().encode(dto.getHeslo());
         uzivatelRepository.save(uzivatelEntity);
         return uzivatelEntity.getUserId();
     }
@@ -93,6 +121,7 @@ public class uzivatelService {
     }
 
     // delete existujúceho uzívateľa
+    @PreAuthorize("ROLE_ADMIN")
     public boolean deleteUzivatel(Long id) {
         Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
         if (opt.isPresent()) {
@@ -103,12 +132,18 @@ public class uzivatelService {
         }
     }
 
-    public boolean authenticate(String username, String password) {
+    public String authenticate(String username, String password) {
         uzivatelEntity user = uzivatelRepository.findByUsername(username);
         if (user != null && user.getHeslo().equals(password)) {
-            return true;
-        } else {
-            return false;
+            TokenEntity token = new TokenEntity();
+            String randomString = UUID.randomUUID().toString();
+            token.setToken(randomString);
+            token.setUser(user);
+            token.setCreatedAt(LocalDateTime.now());
+            tokenRepository.save(token);
+            return token.getToken();
+         } else {
+            return null;
         }
     }
 }

@@ -1,35 +1,30 @@
 package com.example.demo.security.service;
 
+import com.example.demo.persistence.TokenEntity;
+import com.example.demo.persistence.TokenRepository;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.example.demo.security.persistence.*;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class AuthenticationService {
     private static final int TOKEN_VALIDITY_IN_MINUTES = 15;
-    private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
     private final PasswordEncoder passwordEncoder;
     // https://bcrypt-generator.com/, round 1
 
 
-    public AuthenticationService(UserRepository userRepository, TokenRepository tokenRepository) {
-        this.userRepository = userRepository;
+    public AuthenticationService(TokenRepository tokenRepository) {
         this.tokenRepository = tokenRepository;
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-    @Transactional
+/*    @Transactional
     public String authenticate(String username, String password) {
         Optional<UserEntity> optionalUser = userRepository.findByUsername(username);
 
@@ -48,7 +43,7 @@ public class AuthenticationService {
         token.setCreatedAt(LocalDateTime.now());
         tokenRepository.save(token);
 
-        return token.getToken();
+         return token.getToken();
     }
 
     @Transactional
@@ -67,7 +62,7 @@ public class AuthenticationService {
                                      .collect(Collectors.toSet());
 
         return new UserRolesDto(optionalToken.get().getUser().getUsername(), roleNames);
-    }
+    }*/
 
     private void validateTokenExpiration(TokenEntity token) {
         LocalDateTime now = LocalDateTime.now();

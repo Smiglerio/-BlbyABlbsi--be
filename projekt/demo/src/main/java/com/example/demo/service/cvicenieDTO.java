@@ -15,6 +15,6 @@ public class cvicenieDTO {
     private String nazovCviku;
     private String popisCviku;
     private Long idTypCvicenia;
-    private String narocnost;
+    private String narocnostCviku;
     private int pocetOpakovani;
 }

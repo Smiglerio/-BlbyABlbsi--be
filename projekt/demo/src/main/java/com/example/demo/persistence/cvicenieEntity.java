@@ -23,8 +23,8 @@ public class cvicenieEntity {
     private String nazovCviku;
     @Column(name="popiscviku")
     private String popisCviku;
-    @Column(name="narocnostcviku")
-    private String narocnostCviku;
+   /* @Column(name="narocnostcviku")
+    private String narocnostCviku;*/
 
     @ManyToMany
     @JoinTable(

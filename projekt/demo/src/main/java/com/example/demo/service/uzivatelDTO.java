@@ -16,8 +16,6 @@ import java.util.Set;
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
 public class uzivatelDTO {
-    private String meno;
-    private String priezvisko;
     private String username;
     private String heslo;
     private int vek;

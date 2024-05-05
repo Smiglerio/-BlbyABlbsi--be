@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,7 +18,8 @@ public class uzivatelService {
 
     @Autowired
     private uzivatelRepository uzivatelRepository;
-
+    @Autowired
+    private treningovePlanyRepository treningovePlanyRepository;
     @Autowired
     private TokenRepository tokenRepository;
 
@@ -32,11 +34,9 @@ public class uzivatelService {
         }
         uzivatelEntity entity = opt.get();
         uzivatelDTO dto = new uzivatelDTO();
-        dto.setMeno(entity.getMeno());
-        dto.setPriezvisko(entity.getPriezvisko());
         dto.setUserId(entity.getUserId());
         dto.setUsername(entity.getUsername());
-        dto.setHeslo(entity.getMeno());
+        dto.setHeslo(entity.getHeslo());
         dto.setVaha(entity.getVaha());
         dto.setVek(entity.getVek());
         dto.setVyska(entity.getVyska());
@@ -44,34 +44,28 @@ public class uzivatelService {
         return dto;
     }
 
-    public uzivatelDTO getUzivatelFromToken(String token) {
-        Optional<TokenEntity> optToken = tokenRepository.findByToken(token);
-        if (optToken.isEmpty()) {
-            throw new RuntimeException("Authentication failed!");
+    public uzivatelDTO getUzivatelFromToken(String token_) {
+        Optional<TokenEntity> tokenEntity = tokenRepository.findByToken(token_.split("\"")[3]);
+        if (tokenEntity.isPresent()) {
+            TokenEntity token = tokenEntity.get();
+            uzivatelEntity entity = token.getUser();
+            uzivatelDTO dto = new uzivatelDTO();
+            dto.setUserId(entity.getUserId());
+            dto.setUsername(entity.getUsername());
+            dto.setHeslo(entity.getHeslo());
+            dto.setVaha(entity.getVaha());
+            dto.setVek(entity.getVek());
+            dto.setVyska(entity.getVyska());
+            dto.setPohlavie(entity.getPohlavie());
+            for (RoleEntity role : entity.getRoles()) {
+                dto.getRoles().add(role.getRoleName());
+            }
+            return dto;
         }
-        TokenEntity entityToken = optToken.get();
-        uzivatelEntity entity = entityToken.getUser();
-        uzivatelDTO dto = new uzivatelDTO();
-        dto.setMeno(entity.getMeno());
-        dto.setPriezvisko(entity.getPriezvisko());
-        dto.setUserId(entity.getUserId());
-        dto.setUsername(entity.getUsername());
-        dto.setHeslo(entity.getMeno());
-        dto.setVaha(entity.getVaha());
-        dto.setVek(entity.getVek());
-        dto.setVyska(entity.getVyska());
-        dto.setPohlavie(entity.getPohlavie());
-
-        for (RoleEntity role : entity.getRoles()) {
-            dto.getRoles().add(role.getRoleName());
-        }
-        return dto;
+        throw new RuntimeException("Authentication failed!");
     }
-
     public Long createUzivatel(uzivatelDTO dto) {
         uzivatelEntity uzivatelEntity = new uzivatelEntity();
-        uzivatelEntity.setMeno(dto.getMeno());
-        uzivatelEntity.setPriezvisko(dto.getPriezvisko());
         uzivatelEntity.setVaha(dto.getVaha());
         uzivatelEntity.setUsername(dto.getUsername());
         uzivatelEntity.setHeslo(dto.getHeslo());
@@ -84,6 +78,33 @@ public class uzivatelService {
         return uzivatelEntity.getUserId();
     }
 
+    public Long createUzivatelTreningPlan(Long userId, Long planId){
+        Optional<uzivatelEntity> optUzivatelEntity = uzivatelRepository.findById(userId);
+        Optional<treningovePlanyEntity> optTreningovePlany = treningovePlanyRepository.findById(planId);
+        if(optTreningovePlany.isPresent() && optUzivatelEntity.isPresent()){
+            uzivatelEntity uzivatel = optUzivatelEntity.get();
+            treningovePlanyEntity treningPlan = optTreningovePlany.get();
+            uzivatel.getUsertp().add(treningPlan);
+            uzivatelRepository.save(uzivatel);
+            return uzivatel.getUserId();
+        }  return null;
+    }
+
+    public ArrayList<treningovyPlanDTO> getTreningovePlanyByUserId(Long id) {
+        Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
+        ArrayList<treningovyPlanDTO> treningovePlanyList = new ArrayList<>();
+        if (opt.isPresent()) {
+            List<treningovePlanyEntity> treningy = opt.get().getUsertp();
+            for (treningovePlanyEntity trening : treningy) {
+                treningovyPlanDTO dto = new treningovyPlanDTO();
+                dto.setNazov(trening.getNazov());
+                dto.setPopis(trening.getPopis());
+                dto.setPlanId(trening.getPlanId());
+                treningovePlanyList.add(dto);
+            }
+        }
+        return treningovePlanyList;
+    }
 
     // get všetkých uzívateľov
     public ArrayList<uzivatelDTO> getAllUzivatelia() {
@@ -91,11 +112,9 @@ public class uzivatelService {
         ArrayList<uzivatelDTO> uzivateliaList = new ArrayList<>();
         for (uzivatelEntity entity : uzivateliaIterable) {
             uzivatelDTO dto = new uzivatelDTO();
-            dto.setMeno(entity.getMeno());
-            dto.setPriezvisko(entity.getPriezvisko());
             dto.setUserId(entity.getUserId());
             dto.setUsername(entity.getUsername());
-            dto.setHeslo(entity.getMeno());
+            dto.setHeslo(entity.getHeslo());
             dto.setVaha(entity.getVaha());
             dto.setVek(entity.getVek());
             dto.setVyska(entity.getVyska());
@@ -106,12 +125,11 @@ public class uzivatelService {
     }
 
     // update existujúceho uzívateľa
+/*
     public uzivatelDTO updateUzivatel(Long id, uzivatelDTO updatedUzivatel) {
         Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
         if (opt.isPresent()) {
             uzivatelEntity existingUzivatel = opt.get();
-            existingUzivatel.setMeno(updatedUzivatel.getMeno());
-            existingUzivatel.setPriezvisko(updatedUzivatel.getPriezvisko());
             // Update other fields as needed
             uzivatelRepository.save(existingUzivatel);
             return updatedUzivatel;
@@ -119,6 +137,7 @@ public class uzivatelService {
             return null;
         }
     }
+*/
 
     // delete existujúceho uzívateľa
     @PreAuthorize("ROLE_ADMIN")

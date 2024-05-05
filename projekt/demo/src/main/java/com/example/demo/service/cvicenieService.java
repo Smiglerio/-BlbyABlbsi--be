@@ -27,7 +27,7 @@ public class cvicenieService {
         cvicenieEntity entity = opt.get();
         cvicenieDTO dto = new cvicenieDTO();
         dto.setNazovCviku(entity.getNazovCviku());
-        dto.setNarocnostCviku(entity.getNarocnostCviku());
+      /*  dto.setNarocnostCviku(entity.getNarocnostCviku());*/
         dto.setPopisCviku(entity.getPopisCviku());
         dto.setCvicenieid(entity.getCvicenieid());
         return dto;
@@ -37,7 +37,7 @@ public class cvicenieService {
     public Long createCvicenie(cvicenieDTO dto){
         cvicenieEntity entity = new cvicenieEntity();
         entity.setCvicenieid(dto.getCvicenieid());
-        entity.setNarocnostCviku(dto.getNarocnostCviku());
+        /*entity.setNarocnostCviku(dto.getNarocnostCviku());*/
         entity.setNazovCviku(dto.getNazovCviku());
         entity.setPopisCviku(dto.getPopisCviku());
         return entity.getCvicenieid();
@@ -49,7 +49,7 @@ public class cvicenieService {
         for(cvicenieEntity entity : cviceniaIterable){
             cvicenieDTO dto = new cvicenieDTO();
             dto.setCvicenieid(entity.getCvicenieid());
-            dto.setNarocnostCviku(entity.getNarocnostCviku());
+            /*dto.setNarocnostCviku(entity.getNarocnostCviku());*/
             dto.setPopisCviku(entity.getPopisCviku());
             dto.setNazovCviku(entity.getNazovCviku());
             cviceniaList.add(dto);

@@ -1,9 +1,7 @@
 package com.example.demo.persistence;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -22,7 +20,9 @@ public class TokenEntity {
     private String token;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private uzivatelEntity user;
 
     @Column(name = "valid_until", columnDefinition = "TIMESTAMP")

@@ -42,10 +42,17 @@ public class AuthenticationController {
         return authenticationService.authenticate(token);
     }*/
 
-    @DeleteMapping("/api/authentication")
-    public void logout(@RequestHeader(value = AUTHORIZATION_HEADER, required = true) Optional<String> authentication) {
+    @DeleteMapping("/api/authentication/logout")
+    public void logout(@RequestHeader(value = AUTHORIZATION_HEADER, required = false) Optional<String> authentication) {
+        System.out.println("zaciatok funkcie");
         String token = authentication.get().substring("Bearer".length()).trim();
-        authenticationService.tokenRemove(token);
+        System.out.println("token: " + token);
+        if (authentication.isPresent()) {
+            System.out.println("je present");
+            authenticationService.tokenRemove(token);
+        } else {
+            System.out.println("nič sa nestalo");
+        }
     }
-
 }
+

@@ -14,10 +14,6 @@ import java.util.Set;
 @AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
 @Table(name = "uzivatel")
 public class uzivatelEntity {
-    @Column(name = "meno")
-    private String meno;
-    @Column(name = "priezvisko")
-    private String priezvisko;
     @Column(name = "username")
     private String username;
     @Column(name = "heslo")

@@ -1,7 +1,7 @@
 package com.example.demo.service;
 import com.example.demo.persistence.*;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -68,12 +68,11 @@ public class uzivatelService {
         uzivatelEntity uzivatelEntity = new uzivatelEntity();
         uzivatelEntity.setVaha(dto.getVaha());
         uzivatelEntity.setUsername(dto.getUsername());
-        uzivatelEntity.setHeslo(dto.getHeslo());
         uzivatelEntity.setVyska(dto.getVyska());
         uzivatelEntity.setPohlavie(dto.getPohlavie());
         uzivatelEntity.setUserId(dto.getUserId());
         uzivatelEntity.setVek(dto.getVek());
-        this.passwordEncoder().encode(dto.getHeslo());
+        uzivatelEntity.setHeslo(this.passwordEncoder().encode(dto.getHeslo()));
         uzivatelRepository.save(uzivatelEntity);
         return uzivatelEntity.getUserId();
     }
@@ -125,19 +124,23 @@ public class uzivatelService {
     }
 
     // update existujúceho uzívateľa
-/*
+
     public uzivatelDTO updateUzivatel(Long id, uzivatelDTO updatedUzivatel) {
         Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
         if (opt.isPresent()) {
             uzivatelEntity existingUzivatel = opt.get();
-            // Update other fields as needed
+            existingUzivatel.setUsername(updatedUzivatel.getUsername());
+            existingUzivatel.setHeslo(this.passwordEncoder().encode(updatedUzivatel.getHeslo()));
+            existingUzivatel.setVaha(updatedUzivatel.getVaha());
+            existingUzivatel.setVek(updatedUzivatel.getVek());
+            existingUzivatel.setVyska(updatedUzivatel.getVyska());
+            existingUzivatel.setPohlavie(updatedUzivatel.getPohlavie());
             uzivatelRepository.save(existingUzivatel);
             return updatedUzivatel;
         } else {
             return null;
         }
     }
-*/
 
     // delete existujúceho uzívateľa
     @PreAuthorize("ROLE_ADMIN")
@@ -153,7 +156,7 @@ public class uzivatelService {
 
     public String authenticate(String username, String password) {
         uzivatelEntity user = uzivatelRepository.findByUsername(username);
-        if (user != null && user.getHeslo().equals(password)) {
+        if (user != null && BCrypt.checkpw(password, user.getHeslo())) {
             TokenEntity token = new TokenEntity();
             String randomString = UUID.randomUUID().toString();
             token.setToken(randomString);

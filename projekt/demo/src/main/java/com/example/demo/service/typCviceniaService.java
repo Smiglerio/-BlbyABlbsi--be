@@ -1,6 +1,7 @@
 package com.example.demo.service;
 import com.example.demo.persistence.cvicenieEntity;
 import com.example.demo.persistence.typCviceniaEntity;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import com.example.demo.persistence.typCviceniaRepository;
 import com.example.demo.service.typCviceniaDTO;
@@ -14,6 +15,27 @@ import java.util.Optional;
 public class typCviceniaService {
     @Autowired
     private typCviceniaRepository typCviceniaRepository;
+
+    private static final typCviceniaEntity ZACIATOCNIK = new typCviceniaEntity(null,"Začiatočník", 5);
+    private static final typCviceniaEntity POKROCILY = new typCviceniaEntity(null,"Pokročilý", 10);
+    private static final typCviceniaEntity EXPERT = new typCviceniaEntity(null,"Expert", 15);
+    private static final typCviceniaEntity GRECKYPOLOBOH = new typCviceniaEntity(null,"grécky poloboh", 20);
+    private static final typCviceniaEntity MARTINBENDIK = new typCviceniaEntity(null,"Martin Bendík", 1000);
+
+    @PostConstruct
+    @Transactional
+    public void createTypyCviceni() {
+        kontrola(ZACIATOCNIK);
+        kontrola(POKROCILY);
+        kontrola(EXPERT);
+        kontrola(GRECKYPOLOBOH);
+        kontrola(MARTINBENDIK);
+    }
+    public void kontrola(typCviceniaEntity typCviceniaEntity){
+        if(!typCviceniaRepository.existsByNarocnost(typCviceniaEntity.getNarocnost())){
+            typCviceniaRepository.save(typCviceniaEntity);
+        }
+    }
 
     public typCviceniaDTO getTypCvicenia(Long id){
         Optional<typCviceniaEntity> opt = typCviceniaRepository.findById(id);
@@ -47,20 +69,4 @@ public class typCviceniaService {
         }
         return cviceniaTypList;
     }
-
-    /*public typCviceniaDTO updatetypCvicenia(Long id, typCviceniaDTO updateTyp){
-        Optional<typCviceniaEntity> opt = typCviceniaRepository.findById(id);
-        if (opt.isPresent()) {
-            typCviceniaEntity existujuciTyp = opt.get();
-            existujuciTyp.setNarocnost(updateTyp.getNarocnost());
-            existujuciTyp.setPocetOpakovani(updateTyp.getPocetOpakovani());
-            typCviceniaEntity updatedTypCvicenia = typCviceniaRepository.save(existujuciTyp);
-            typCviceniaDTO updatedTypCviceniaDTO = new typCviceniaDTO();
-            updatedTypCviceniaDTO.setNarocnost(updatedTypCvicenia.getNarocnost());
-            updatedTypCviceniaDTO.setPocetOpakovani(updatedTypCvicenia.getPocetOpakovani());
-            return updatedTypCviceniaDTO;
-        } else {
-            return null;
-        }
-    }*/
 }

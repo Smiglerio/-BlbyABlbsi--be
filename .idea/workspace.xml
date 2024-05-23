@@ -4,46 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="Prvotné pridanie security">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7537362e-7325-4661-b524-2206f2e18b91/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7537362e-7325-4661-b524-2206f2e18b91/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c347bbc4-c5cb-4b45-951f-9699142e7045.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c347bbc4-c5cb-4b45-951f-9699142e7045/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c347bbc4-c5cb-4b45-951f-9699142e7045/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c347bbc4-c5cb-4b45-951f-9699142e7045/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c347bbc4-c5cb-4b45-951f-9699142e7045/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17__4__2024_19_44_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_17__4__2024_19_44__Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21__4__2024_16_01_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21__4__2024_16_01__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20__4__2024_14_35_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20__4__2024_14_35_[Changes]/uzivatelController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20__4__2024_14_35__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21__4__2024_16_02_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21__4__2024_16_02__Changes_.xml" beforeDir="false" />
+    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="oprava odhlasenia, pridanie pridelovania treningovych planov uzivatelom">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22__4__2024_12_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22__4__2024_12_43__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28__4__2024_13_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28__4__2024_13_48__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24__4__2024_11_42__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_27__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/TokenEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/TokenEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/TokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/TokenRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/cvicenieEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/cvicenieEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/cvicenieEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/cvicenieDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/cvicenieDTO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
     </list>
     <list id="b8f9f914-f6a5-48e3-a872-32f4816feac6" name="Changes by marek" comment="" />
+    <list id="3ba5ef9d-8f1e-490e-a0ca-44cfd29758be" name="Changes by MarekMajo" comment="">
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/test/java/com/example/demo/security/AuthenticationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/test/java/com/example/demo/security/AuthenticationControllerTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,42 +66,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;treningPlanByUserIdBranch&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mbend/IdeaProjects/library-be_6-security&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "git-widget-placeholder": "createTP",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mbend/IdeaProjects/library-be_6-security",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.demo" />
@@ -171,6 +155,9 @@
       <workItem from="1714403270317" duration="7000" />
       <workItem from="1714454183656" duration="175000" />
       <workItem from="1714925723966" duration="4953000" />
+      <workItem from="1716381210255" duration="16434000" />
+      <workItem from="1716451488164" duration="2888000" />
+      <workItem from="1716454460527" duration="1621000" />
     </task>
     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
       <option name="closed" value="true" />

@@ -19,6 +19,4 @@ public class typCviceniaEntity {
     private String narocnost;
     @Column(name = "pocetOpakovani")
     private int pocetOpakovani;
-
-
 }

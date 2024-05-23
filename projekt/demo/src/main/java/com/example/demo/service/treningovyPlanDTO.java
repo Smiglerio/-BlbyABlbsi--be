@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data // automaticky doplni gettre, setre , toString , ...
 @NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
@@ -15,4 +16,5 @@ public class treningovyPlanDTO {
     private Long planId;
     private String nazov;
     private String popis;
+    private List<Long> cviceniaList;
 }

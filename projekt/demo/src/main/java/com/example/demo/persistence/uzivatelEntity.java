@@ -21,7 +21,7 @@ public class uzivatelEntity {
     @Column(name = "vek")
     private int vek;
     @Column(name = "vaha")
-    private int vaha;
+    private String vaha;
     @Column(name = "vyska")
     private int vyska;
     @Column(name = "pohlavie")
@@ -41,5 +41,7 @@ public class uzivatelEntity {
             inverseJoinColumns = @JoinColumn(name = "planid")
     )
     private List<treningovePlanyEntity> usertp;
+    @OneToMany
+    private List<uzivatelEntity> uservaha;
 
 }

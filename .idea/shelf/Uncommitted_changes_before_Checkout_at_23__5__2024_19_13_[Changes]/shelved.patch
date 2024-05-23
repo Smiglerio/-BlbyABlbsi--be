@@ -1,0 +1,235 @@
+Index: projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.demo.controller;\r\nimport com.example.demo.persistence.uzivatelEntity;\r\nimport com.example.demo.security.service.AuthenticationService;\r\nimport com.example.demo.service.cvicenieDTO;\r\nimport com.example.demo.service.treningovyPlanDTO;\r\nimport org.springframework.http.HttpHeaders;\r\nimport org.springframework.web.bind.annotation.RestController;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.web.bind.annotation.*;\r\nimport com.example.demo.service.uzivatelService;\r\nimport com.example.demo.service.uzivatelDTO;\r\n\r\n// pridane\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\n\r\nimport org.springframework.http.ResponseEntity;\r\nimport org.springframework.http.HttpStatus;\r\n\r\n@RestController\r\n@RequestMapping(\"fitness\")\r\npublic class uzivatelController {\r\n    @Autowired\r\n    private uzivatelService uzivatelService;\r\n    @Autowired\r\n    private AuthenticationService authenticationService;\r\n\r\n    @GetMapping(\"/api/uzivatel/{id}\")\r\n    public uzivatelDTO getUzivatel(@PathVariable Long id) {\r\n        return uzivatelService.getUzivatel(id);\r\n    }\r\n\r\n    @PostMapping(\"/api/login\")\r\n    public String login(@RequestBody uzivatelDTO userLogin, @RequestHeader(HttpHeaders.AUTHORIZATION) String auth) {\r\n        System.out.println(userLogin);\r\n        String token = uzivatelService.authenticate(userLogin.getUsername(), userLogin.getHeslo());\r\n        System.out.println(token);\r\n        return token;\r\n    }\r\n\r\n    // vytvorenie uzivatela\r\n    @PostMapping(\"/api/uzivatel\")\r\n    public Long createUzivatel(@RequestBody uzivatelDTO uzivatel) {\r\n        return uzivatelService.createUzivatel(uzivatel);\r\n    }\r\n\r\n    // získanie all uzívateľov\r\n    @GetMapping(\"/api/uzivatel/all\")\r\n    public ArrayList<uzivatelDTO> getAllUzivatelia() {\r\n        return uzivatelService.getAllUzivatelia();\r\n    }\r\n\r\n /*   //aktualizaci existujúceho uzívateľa\r\n    @PutMapping(\"/api/uzivatel/{id}\")\r\n    public uzivatelDTO updateUzivatel(@PathVariable Long id, @RequestBody uzivatelDTO uzivatel) {\r\n        return uzivatelService.updateUzivatel(id, uzivatel);\r\n    }*/\r\n\r\n    //vymazanie existujúceho uzívateľa\r\n    @DeleteMapping(\"/api/uzivatel/{id}\")\r\n    public boolean deleteUzivatel(@PathVariable Long id) {\r\n        return uzivatelService.deleteUzivatel(id);\r\n    }\r\n    @PostMapping(\"api/uzivatel/{userId}/treningovyPlan/{planId}\")\r\n    public Long createUzivatelTreningPlan(@PathVariable Long userId, @PathVariable Long planId){\r\n        return uzivatelService.createUzivatelTreningPlan(userId,planId);\r\n    }\r\n    @PostMapping(\"/api/getUzivatelFromToken\")\r\n    public uzivatelDTO getUzivatelFromToken(@RequestBody String token){\r\n        return uzivatelService.getUzivatelFromToken(token);\r\n    }\r\n    @GetMapping(\"/api/uzivatel/treningovePlany/{id}\")\r\n    public List<treningovyPlanDTO> getTreningovePlanyByUserId(@PathVariable Long id) {\r\n        return uzivatelService.getTreningovePlanyByUserId(id);\r\n    }\r\n\r\n    @PutMapping(\"/api/uzivatel/vaha\")\r\n    public void updateVaha(@RequestBody String token){\r\n        uzivatelService.updateVaha(token);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java b/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java
+--- a/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java	(revision 912ef4411fbf027b9524a3ac274fcd690692c806)
++++ b/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java	(date 1716484402249)
+@@ -1,7 +1,6 @@
+ package com.example.demo.controller;
+ import com.example.demo.persistence.uzivatelEntity;
+ import com.example.demo.security.service.AuthenticationService;
+-import com.example.demo.service.cvicenieDTO;
+ import com.example.demo.service.treningovyPlanDTO;
+ import org.springframework.http.HttpHeaders;
+ import org.springframework.web.bind.annotation.RestController;
+@@ -13,10 +12,6 @@
+ // pridane
+ import java.util.ArrayList;
+ import java.util.List;
+-import java.util.Optional;
+-
+-import org.springframework.http.ResponseEntity;
+-import org.springframework.http.HttpStatus;
+ 
+ @RestController
+ @RequestMapping("fitness")
+@@ -75,9 +70,16 @@
+         return uzivatelService.getTreningovePlanyByUserId(id);
+     }
+ 
++
+     @PutMapping("/api/uzivatel/vaha")
+     public void updateVaha(@RequestBody String token){
+         uzivatelService.updateVaha(token);
+     }
+ 
++
++    @PutMapping("/api/uzivatel/{id}")
++    public uzivatelDTO updateUzivatel(@PathVariable Long id, @RequestBody uzivatelDTO updatedUzivatel) {
++        return uzivatelService.updateUzivatel(id, updatedUzivatel);
++    }
++
+ }
+Index: projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.demo.service;\r\nimport com.example.demo.persistence.*;\r\nimport org.springframework.context.annotation.Bean;\r\nimport org.springframework.security.access.prepost.PreAuthorize;\r\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\r\nimport org.springframework.security.crypto.password.PasswordEncoder;\r\nimport org.springframework.stereotype.Service;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\n\r\nimport java.time.LocalDateTime;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Optional;\r\nimport java.util.UUID;\r\n\r\n@Service\r\npublic class uzivatelService {\r\n\r\n    @Autowired\r\n    private uzivatelRepository uzivatelRepository;\r\n    @Autowired\r\n    private treningovePlanyRepository treningovePlanyRepository;\r\n    @Autowired\r\n    private TokenRepository tokenRepository;\r\n    @Autowired\r\n    private vahaRepository vahaRepository;\r\n    public PasswordEncoder passwordEncoder() {\r\n        return new BCryptPasswordEncoder();\r\n    }\r\n\r\n    public uzivatelDTO getUzivatel(Long id) {\r\n        Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);\r\n        if (opt.isEmpty()) {\r\n            return null;\r\n        }\r\n        uzivatelEntity entity = opt.get();\r\n        uzivatelDTO dto = new uzivatelDTO();\r\n        dto.setUserId(entity.getUserId());\r\n        dto.setUsername(entity.getUsername());\r\n        dto.setHeslo(entity.getHeslo());\r\n        dto.setVaha(entity.getVaha());\r\n        dto.setVek(entity.getVek());\r\n        dto.setVyska(entity.getVyska());\r\n        dto.setPohlavie(entity.getPohlavie());\r\n        return dto;\r\n    }\r\n\r\n    public uzivatelDTO getUzivatelFromToken(String token_) {\r\n        Optional<TokenEntity> tokenEntity = tokenRepository.findByToken(token_.split(\"\\\"\")[3]);\r\n        if (tokenEntity.isPresent()) {\r\n            TokenEntity token = tokenEntity.get();\r\n            uzivatelEntity entity = token.getUser();\r\n            uzivatelDTO dto = new uzivatelDTO();\r\n            dto.setUserId(entity.getUserId());\r\n            dto.setUsername(entity.getUsername());\r\n            dto.setHeslo(entity.getHeslo());\r\n            dto.setVaha(entity.getVaha());\r\n            dto.setVek(entity.getVek());\r\n            dto.setVyska(entity.getVyska());\r\n            dto.setPohlavie(entity.getPohlavie());\r\n            for (RoleEntity role : entity.getRoles()) {\r\n                dto.getRoles().add(role.getRoleName());\r\n            }\r\n            return dto;\r\n        }\r\n        throw new RuntimeException(\"Authentication failed!\");\r\n    }\r\n    public Long createUzivatel(uzivatelDTO dto) {\r\n        uzivatelEntity uzivatelEntity = new uzivatelEntity();\r\n        uzivatelEntity.setVaha(dto.getVaha());\r\n        uzivatelEntity.setUsername(dto.getUsername());\r\n        uzivatelEntity.setHeslo(dto.getHeslo());\r\n        uzivatelEntity.setVyska(dto.getVyska());\r\n        uzivatelEntity.setPohlavie(dto.getPohlavie());\r\n        uzivatelEntity.setUserId(dto.getUserId());\r\n        uzivatelEntity.setVek(dto.getVek());\r\n        this.passwordEncoder().encode(dto.getHeslo());\r\n        uzivatelRepository.save(uzivatelEntity);\r\n        return uzivatelEntity.getUserId();\r\n    }\r\n\r\n    public Long createUzivatelTreningPlan(Long userId, Long planId){\r\n        Optional<uzivatelEntity> optUzivatelEntity = uzivatelRepository.findById(userId);\r\n        Optional<treningovePlanyEntity> optTreningovePlany = treningovePlanyRepository.findById(planId);\r\n        if(optTreningovePlany.isPresent() && optUzivatelEntity.isPresent()){\r\n            uzivatelEntity uzivatel = optUzivatelEntity.get();\r\n            treningovePlanyEntity treningPlan = optTreningovePlany.get();\r\n            uzivatel.getUsertp().add(treningPlan);\r\n            uzivatelRepository.save(uzivatel);\r\n            return uzivatel.getUserId();\r\n        }  return null;\r\n    }\r\n\r\n    public ArrayList<treningovyPlanDTO> getTreningovePlanyByUserId(Long id) {\r\n        Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);\r\n        ArrayList<treningovyPlanDTO> treningovePlanyList = new ArrayList<>();\r\n        if (opt.isPresent()) {\r\n            List<treningovePlanyEntity> treningy = opt.get().getUsertp();\r\n            for (treningovePlanyEntity trening : treningy) {\r\n                treningovyPlanDTO dto = new treningovyPlanDTO();\r\n                dto.setNazov(trening.getNazov());\r\n                dto.setPopis(trening.getPopis());\r\n                dto.setPlanId(trening.getPlanId());\r\n                treningovePlanyList.add(dto);\r\n            }\r\n        }\r\n        return treningovePlanyList;\r\n    }\r\n\r\n    // get všetkých uzívateľov\r\n    public ArrayList<uzivatelDTO> getAllUzivatelia() {\r\n        Iterable<uzivatelEntity> uzivateliaIterable = uzivatelRepository.findAll();\r\n        ArrayList<uzivatelDTO> uzivateliaList = new ArrayList<>();\r\n        for (uzivatelEntity entity : uzivateliaIterable) {\r\n            uzivatelDTO dto = new uzivatelDTO();\r\n            dto.setUserId(entity.getUserId());\r\n            dto.setUsername(entity.getUsername());\r\n            dto.setHeslo(entity.getHeslo());\r\n            dto.setVaha(entity.getVaha());\r\n            dto.setVek(entity.getVek());\r\n            dto.setVyska(entity.getVyska());\r\n            dto.setPohlavie(entity.getPohlavie());\r\n            uzivateliaList.add(dto);\r\n        }\r\n        return uzivateliaList;\r\n    }\r\n\r\n    // update existujúceho uzívateľa\r\n/*\r\n    public uzivatelDTO updateUzivatel(Long id, uzivatelDTO updatedUzivatel) {\r\n        Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);\r\n        if (opt.isPresent()) {\r\n            uzivatelEntity existingUzivatel = opt.get();\r\n            // Update other fields as needed\r\n            uzivatelRepository.save(existingUzivatel);\r\n            return updatedUzivatel;\r\n        } else {\r\n            return null;\r\n        }\r\n    }\r\n*/\r\n    public void updateVaha(String token_){\r\n        String token = token_.split(\"/\")[0];\r\n        String novaVaha = token_.split(\"/\")[1];\r\n\r\n        System.out.println(\"nova vaha \" + novaVaha);\r\n        uzivatelDTO dto = getUzivatelFromToken(token);\r\n        uzivatelEntity opt = uzivatelRepository.findById(dto.getUserId()).get();\r\n        vahaEntity entity = new vahaEntity();\r\n        entity.setUserId(opt);\r\n        entity.setVaha(dto.getVaha());\r\n        opt.setVaha(novaVaha);\r\n        uzivatelRepository.save(opt);\r\n        vahaRepository.save(entity);\r\n    }\r\n    // delete existujúceho uzívateľa\r\n    @PreAuthorize(\"ROLE_ADMIN\")\r\n    public boolean deleteUzivatel(Long id) {\r\n        Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);\r\n        if (opt.isPresent()) {\r\n            uzivatelRepository.deleteById(id);\r\n            return true;\r\n        } else {\r\n            return false;\r\n        }\r\n    }\r\n\r\n    public String authenticate(String username, String password) {\r\n        uzivatelEntity user = uzivatelRepository.findByUsername(username);\r\n        if (user != null && user.getHeslo().equals(password)) {\r\n            TokenEntity token = new TokenEntity();\r\n            String randomString = UUID.randomUUID().toString();\r\n            token.setToken(randomString);\r\n            token.setUser(user);\r\n            token.setCreatedAt(LocalDateTime.now());\r\n            tokenRepository.save(token);\r\n            return token.getToken();\r\n         } else {\r\n            return null;\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java b/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java
+--- a/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java	(revision 912ef4411fbf027b9524a3ac274fcd690692c806)
++++ b/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java	(date 1716484404238)
+@@ -1,7 +1,7 @@
+ package com.example.demo.service;
+ import com.example.demo.persistence.*;
+-import org.springframework.context.annotation.Bean;
+ import org.springframework.security.access.prepost.PreAuthorize;
++import org.springframework.security.crypto.bcrypt.BCrypt;
+ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+ import org.springframework.security.crypto.password.PasswordEncoder;
+ import org.springframework.stereotype.Service;
+@@ -69,12 +69,11 @@
+         uzivatelEntity uzivatelEntity = new uzivatelEntity();
+         uzivatelEntity.setVaha(dto.getVaha());
+         uzivatelEntity.setUsername(dto.getUsername());
+-        uzivatelEntity.setHeslo(dto.getHeslo());
+         uzivatelEntity.setVyska(dto.getVyska());
+         uzivatelEntity.setPohlavie(dto.getPohlavie());
+         uzivatelEntity.setUserId(dto.getUserId());
+         uzivatelEntity.setVek(dto.getVek());
+-        this.passwordEncoder().encode(dto.getHeslo());
++        uzivatelEntity.setHeslo(this.passwordEncoder().encode(dto.getHeslo()));
+         uzivatelRepository.save(uzivatelEntity);
+         return uzivatelEntity.getUserId();
+     }
+@@ -126,22 +125,30 @@
+     }
+ 
+     // update existujúceho uzívateľa
+-/*
++
+     public uzivatelDTO updateUzivatel(Long id, uzivatelDTO updatedUzivatel) {
+         Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
+         if (opt.isPresent()) {
+             uzivatelEntity existingUzivatel = opt.get();
+-            // Update other fields as needed
++            existingUzivatel.setUsername(updatedUzivatel.getUsername());
++            existingUzivatel.setHeslo(this.passwordEncoder().encode(updatedUzivatel.getHeslo()));
++            existingUzivatel.setVaha(updatedUzivatel.getVaha());
++            existingUzivatel.setVek(updatedUzivatel.getVek());
++            existingUzivatel.setVyska(updatedUzivatel.getVyska());
++            existingUzivatel.setPohlavie(updatedUzivatel.getPohlavie());
+             uzivatelRepository.save(existingUzivatel);
+             return updatedUzivatel;
+         } else {
+             return null;
+         }
+     }
++<<<<<<< HEAD
+ */
+     public void updateVaha(String token_){
+         String token = token_.split("/")[0];
+         String novaVaha = token_.split("/")[1];
++=======
++>>>>>>> efd9565e50ace055d61b421a0b4735980ca18999
+ 
+         System.out.println("nova vaha " + novaVaha);
+         uzivatelDTO dto = getUzivatelFromToken(token);
+@@ -167,7 +174,7 @@
+ 
+     public String authenticate(String username, String password) {
+         uzivatelEntity user = uzivatelRepository.findByUsername(username);
+-        if (user != null && user.getHeslo().equals(password)) {
++        if (user != null && BCrypt.checkpw(password, user.getHeslo())) {
+             TokenEntity token = new TokenEntity();
+             String randomString = UUID.randomUUID().toString();
+             token.setToken(randomString);
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"956d7de9-285b-41e2-8c63-45164a3a88e5\" name=\"Changes\" comment=\"zmena vahy pridana\">\r\n      <change afterPath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/vahaEntity.java\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/vahaRepository.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class\" afterDir=\"false\" />\r\n    </list>\r\n    <list id=\"b8f9f914-f6a5-48e3-a872-32f4816feac6\" name=\"Changes by marek\" comment=\"\" />\r\n    <list id=\"3ba5ef9d-8f1e-490e-a0ca-44cfd29758be\" name=\"Changes by MarekMajo\" comment=\"vytvorenie tp, cviceni\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"KubernetesApiProvider\">{\r\n  &quot;isMigrated&quot;: true\r\n}</component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2e7oNvzA7X89ertNXUMRof3mSD8\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"RequestMappingsPanelOrder0\": \"0\",\r\n    \"RequestMappingsPanelOrder1\": \"1\",\r\n    \"RequestMappingsPanelWidth0\": \"75\",\r\n    \"RequestMappingsPanelWidth1\": \"75\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"Spring Boot.DemoApplication.executor\": \"Run\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"codeWithMe.voiceChat.enabledByDefault\": \"false\",\r\n    \"database.data.extractors.current.export.id\": \"SQL Inserts\",\r\n    \"git-widget-placeholder\": \"createTP\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/mbend/IdeaProjects/library-be_6-security\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.0\",\r\n    \"project.structure.side.proportion\": \"0.0\",\r\n    \"settings.editor.selected.configurable\": \"preferences.keymap\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  },\r\n  \"keyToStringList\": {\r\n    \"DatabaseDriversLRU\": [\r\n      \"postgresql\"\r\n    ]\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"com.example.demo\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"DemoApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\" nameIsGenerated=\"true\">\r\n      <module name=\"demo\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.example.demo.DemoApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"956d7de9-285b-41e2-8c63-45164a3a88e5\" name=\"Changes\" comment=\"\" />\r\n      <created>1711264940977</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1711264940977</updated>\r\n      <workItem from=\"1711266479975\" duration=\"1756000\" />\r\n      <workItem from=\"1711268295748\" duration=\"9185000\" />\r\n      <workItem from=\"1711366780243\" duration=\"3462000\" />\r\n      <workItem from=\"1711372489086\" duration=\"751000\" />\r\n      <workItem from=\"1712390391582\" duration=\"2187000\" />\r\n      <workItem from=\"1712493534970\" duration=\"4725000\" />\r\n      <workItem from=\"1712498292387\" duration=\"6300000\" />\r\n      <workItem from=\"1712519338839\" duration=\"1841000\" />\r\n      <workItem from=\"1712572347377\" duration=\"949000\" />\r\n      <workItem from=\"1712589593544\" duration=\"84000\" />\r\n      <workItem from=\"1713026237863\" duration=\"5587000\" />\r\n      <workItem from=\"1713032247444\" duration=\"8287000\" />\r\n      <workItem from=\"1713080719681\" duration=\"8958000\" />\r\n      <workItem from=\"1713467911365\" duration=\"2357000\" />\r\n      <workItem from=\"1713516307329\" duration=\"3187000\" />\r\n      <workItem from=\"1713553309603\" duration=\"1372000\" />\r\n      <workItem from=\"1714320998098\" duration=\"584000\" />\r\n      <workItem from=\"1714321638362\" duration=\"11694000\" />\r\n      <workItem from=\"1714334746830\" duration=\"1658000\" />\r\n      <workItem from=\"1714386624640\" duration=\"1905000\" />\r\n      <workItem from=\"1714395821642\" duration=\"1122000\" />\r\n      <workItem from=\"1714403270317\" duration=\"7000\" />\r\n      <workItem from=\"1714454183656\" duration=\"175000\" />\r\n      <workItem from=\"1714925723966\" duration=\"4953000\" />\r\n      <workItem from=\"1716381210255\" duration=\"16434000\" />\r\n      <workItem from=\"1716451488164\" duration=\"2888000\" />\r\n      <workItem from=\"1716454460527\" duration=\"9692000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Základné prepojenie s Frontendom\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1711314974757</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1711314974757</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Základné prepojenie s Frontendom\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1711315001256</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1711315001256</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Oprava po Adamovi\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1711368198857</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1711368198858</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Pridanie Entit a DTO - Šimon\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1712500624165</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1712500624165</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Pridanie authentifikacie\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1712522020592</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1712522020592</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Prvotné pridanie security\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713617420816</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713617420816</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"vytvorenie tp, cviceni\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716457304395</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716457304395</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"vytvorenie tp, cviceni\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716457327077</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716457327077</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Základné prepojenie s Frontendom\" />\r\n    <MESSAGE value=\"Oprava po Adamovi\" />\r\n    <MESSAGE value=\"Pridanie Entit a DTO - Šimon\" />\r\n    <MESSAGE value=\"Pridanie authentifikacie\" />\r\n    <MESSAGE value=\"Prvotné pridanie security\" />\r\n    <MESSAGE value=\"vytvorenie tp, cviceni\" />\r\n    <MESSAGE value=\"zmena vahy pridana\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"zmena vahy pridana\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 912ef4411fbf027b9524a3ac274fcd690692c806)
++++ b/.idea/workspace.xml	(date 1716484097749)
+@@ -5,20 +5,15 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="zmena vahy pridana">
+-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/vahaEntity.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/vahaRepository.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
+     </list>
+     <list id="b8f9f914-f6a5-48e3-a872-32f4816feac6" name="Changes by marek" comment="" />
+-    <list id="3ba5ef9d-8f1e-490e-a0ca-44cfd29758be" name="Changes by MarekMajo" comment="vytvorenie tp, cviceni" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -72,7 +67,7 @@
+     "WebServerToolWindowFactoryState": "false",
+     "codeWithMe.voiceChat.enabledByDefault": "false",
+     "database.data.extractors.current.export.id": "SQL Inserts",
+-    "git-widget-placeholder": "createTP",
++    "git-widget-placeholder": "Merging createTP",
+     "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "C:/Users/mbend/IdeaProjects/library-be_6-security",
+@@ -148,7 +143,7 @@
+       <workItem from="1714925723966" duration="4953000" />
+       <workItem from="1716381210255" duration="16434000" />
+       <workItem from="1716451488164" duration="2888000" />
+-      <workItem from="1716454460527" duration="9692000" />
++      <workItem from="1716454460527" duration="11273000" />
+     </task>
+     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
+       <option name="closed" value="true" />
+@@ -214,11 +209,38 @@
+       <option name="project" value="LOCAL" />
+       <updated>1716457327077</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="zmena vahy pridana">
++      <option name="closed" value="true" />
++      <created>1716482456441</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1716482456442</updated>
++    </task>
++    <task id="LOCAL-00010" summary="zmena vahy pridana">
++      <option name="closed" value="true" />
++      <created>1716482469287</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1716482469287</updated>
++    </task>
++    <option name="localTasksCounter" value="11" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+Index: projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.demo.security.core;\r\n\r\nimport com.example.demo.service.uzivatelService;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.context.annotation.Bean;\r\nimport org.springframework.context.annotation.Configuration;\r\nimport org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;\r\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\r\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;\r\nimport org.springframework.security.config.http.SessionCreationPolicy;\r\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\r\nimport org.springframework.security.crypto.password.PasswordEncoder;\r\nimport org.springframework.security.web.SecurityFilterChain;\r\nimport org.springframework.security.web.authentication.AuthenticationSuccessHandler;\r\nimport org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;\r\nimport com.example.demo.security.service.AuthenticationService;\r\n\r\n@Configuration\r\n@EnableMethodSecurity\r\npublic class SecurityConfig {\r\n\r\n    @Autowired\r\n    private uzivatelService uzivatelService;\r\n\r\n    @Autowired\r\n    private AuthenticationEntryPoint authEntryPoint;\r\n\r\n    public PasswordEncoder passwordEncoder() {\r\n        return new BCryptPasswordEncoder();\r\n    }\r\n\r\n    @Bean\r\n    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\r\n        http.csrf(csrf -> csrf.disable());\r\n        http.authorizeHttpRequests(auth -> auth\r\n//                .requestMatchers(\"/api/authentication\").permitAll()\r\n                .anyRequest().authenticated());\r\n//        http.exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint).accessDeniedPage(\"/error/accedd-denied\"));\r\n        http.exceptionHandling((exception)-> exception.authenticationEntryPoint(authEntryPoint));\r\n        http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));\r\n        http.addFilterBefore(new AuthenticationFilter(uzivatelService), UsernamePasswordAuthenticationFilter.class);\r\n        return http.build();\r\n    }\r\n\r\n    @Bean\r\n    public WebSecurityCustomizer webSecurityCustomizer() {\r\n        return (web) -> web.ignoring().requestMatchers(\"/fitness/api/authentication\")\r\n                .requestMatchers(\"/fitness/api/uzivatel\")\r\n                .requestMatchers(\"/fitness/api/uzivatel/all\")\r\n                .requestMatchers(\"/fitness/api/uzivatel/{id}\")\r\n                .requestMatchers(\"/fitness/api/cvicenie\")\r\n                .requestMatchers(\"/fitness/api/cvicenie/{id}\")\r\n                .requestMatchers(\"/fitness/api/cvicenie/list\")\r\n                .requestMatchers(\"/fitness/api/treningovyPlan\")\r\n                .requestMatchers(\"/fitness/api/treningovyPlan/{id}\")\r\n                .requestMatchers(\"/fitness/api/treningovyPlan/list\")\r\n                .requestMatchers(\"/fitness/api/treningovyPlan/cvicenia/{id}\")\r\n                .requestMatchers(\"/fitness/api/login\")\r\n                .requestMatchers(\"/fitness/api/typCvicenia\")\r\n                .requestMatchers(\"/fitness/api/typCvicenia/{id}\")\r\n                .requestMatchers(\"/fitness/api/typCvicenia/list\")\r\n                .requestMatchers(\"/fitness/api/uzivatel/{userId}/treningovyPlan/{planId}\")\r\n                .requestMatchers(\"/fitness/api/getUzivatelFromToken\")\r\n                .requestMatchers(\"fitness/api/uzivatel/treningovePlany/{id}\")\r\n                .requestMatchers(\"api/authentication/logout\")\r\n                .requestMatchers(\"fitness/api/uzivatel/vaha\");\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java b/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java
+--- a/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java	(revision 912ef4411fbf027b9524a3ac274fcd690692c806)
++++ b/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java	(date 1716483273011)
+@@ -44,10 +44,12 @@
+ 
+     @Bean
+     public WebSecurityCustomizer webSecurityCustomizer() {
+-        return (web) -> web.ignoring().requestMatchers("/fitness/api/authentication")
++        return (web) -> web.ignoring()
++                .requestMatchers("/fitness/api/authentication")
+                 .requestMatchers("/fitness/api/uzivatel")
+                 .requestMatchers("/fitness/api/uzivatel/all")
+                 .requestMatchers("/fitness/api/uzivatel/{id}")
++                .requestMatchers("/fitness/api/uzivatel/change/{id}")
+                 .requestMatchers("/fitness/api/cvicenie")
+                 .requestMatchers("/fitness/api/cvicenie/{id}")
+                 .requestMatchers("/fitness/api/cvicenie/list")

@@ -64,6 +64,8 @@ public class SecurityConfig {
                 .requestMatchers("/fitness/api/uzivatel/{userId}/treningovyPlan/{planId}")
                 .requestMatchers("/fitness/api/getUzivatelFromToken")
                 .requestMatchers("fitness/api/uzivatel/treningovePlany/{id}")
+                .requestMatchers("fitness/api/uzivatel/vaha")
+                .requestMatchers("fitness/api/uzivatel/getVahy")
                 .requestMatchers("api/authentication/logout");
     }
 

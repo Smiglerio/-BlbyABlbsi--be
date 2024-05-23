@@ -9,27 +9,33 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Data // automaticky doplni gettre, setre , toString , ...
-@NoArgsConstructor // automaticky doplni bezparametricky konstrucktor
-@AllArgsConstructor // automaticky doplni parametricky konstruktor pre vsetky atributy
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "uzivatel")
 public class uzivatelEntity {
-    @Column(name = "username")
-    private String username;
-    @Column(name = "heslo")
-    private String heslo;
-    @Column(name = "vek")
-    private int vek;
-    @Column(name = "vaha")
-    private String vaha;
-    @Column(name = "vyska")
-    private int vyska;
-    @Column(name = "pohlavie")
-    private String pohlavie;
-    @Column(name = "userid")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userid")
     private Long userId;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "heslo")
+    private String heslo;
+
+    @Column(name = "vek")
+    private int vek;
+
+    @Column(name = "vaha")
+    private String vaha;
+
+    @Column(name = "vyska")
+    private int vyska;
+
+    @Column(name = "pohlavie")
+    private String pohlavie;
 
     @ManyToMany
     private Set<RoleEntity> roles = new HashSet<>();
@@ -41,7 +47,8 @@ public class uzivatelEntity {
             inverseJoinColumns = @JoinColumn(name = "planid")
     )
     private List<treningovePlanyEntity> usertp;
-    @OneToMany
-    private List<uzivatelEntity> uservaha;
 
+    @OneToMany(mappedBy = "userId")
+    private List<vahaEntity> uservaha;
 }
+

@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_23__5__2024_19_14_[Changes]" date="1716484493243" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23__5__2024_19_14_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 23. 5. 2024 19:14 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" />
+    <option name="AFTER_PATH" value="projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23__5__2024_19_14_[Changes]/uzivatelController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" />
+    <option name="AFTER_PATH" value="projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23__5__2024_19_14_[Changes]/uzivatelService.class" />
+  </binary>
+</changelist>

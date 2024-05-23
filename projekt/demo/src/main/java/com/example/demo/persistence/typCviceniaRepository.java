@@ -3,4 +3,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 @Repository
 public interface typCviceniaRepository extends CrudRepository<typCviceniaEntity,Long> {
+    boolean existsByNarocnost(String narocnost);
 }

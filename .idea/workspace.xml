@@ -4,20 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="Musím dať commit, inak mi to nedá update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="oprava odhlasenia, pridanie pridelovania treningovych planov uzivatelom">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22__4__2024_12_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22__4__2024_12_43__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28__4__2024_13_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28__4__2024_13_48__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24__4__2024_11_42__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_27__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/controller/uzivatelController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelDTO.class" afterDir="false" />
     </list>
     <list id="b8f9f914-f6a5-48e3-a872-32f4816feac6" name="Changes by marek" comment="" />
+    <list id="3ba5ef9d-8f1e-490e-a0ca-44cfd29758be" name="Changes by MarekMajo" comment="">
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/test/java/com/example/demo/security/AuthenticationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/test/java/com/example/demo/security/AuthenticationControllerTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,18 +49,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Martinaldo753&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Smiglerio/-BlbyABlbsi--be.git&quot;,
-    &quot;accountId&quot;: &quot;713d2d47-5ff5-4d54-9d0c-ff497fec39b0&quot;
-  }
-}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -68,42 +66,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DemoApplication.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Profile-page-úprava&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mbend/IdeaProjects/library-be_6-security&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Docker&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.DemoApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "database.data.extractors.current.export.id": "SQL Inserts",
+    "git-widget-placeholder": "createTP",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/mbend/IdeaProjects/library-be_6-security",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.demo" />
@@ -121,8 +119,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
       </set>
     </attachedChunks>
   </component>
@@ -150,10 +147,17 @@
       <workItem from="1713467911365" duration="2357000" />
       <workItem from="1713516307329" duration="3187000" />
       <workItem from="1713553309603" duration="1372000" />
-      <workItem from="1713946192511" duration="3775000" />
-      <workItem from="1714980230693" duration="7126000" />
-      <workItem from="1714991566342" duration="3616000" />
-      <workItem from="1716188709262" duration="11222000" />
+      <workItem from="1714320998098" duration="584000" />
+      <workItem from="1714321638362" duration="11694000" />
+      <workItem from="1714334746830" duration="1658000" />
+      <workItem from="1714386624640" duration="1905000" />
+      <workItem from="1714395821642" duration="1122000" />
+      <workItem from="1714403270317" duration="7000" />
+      <workItem from="1714454183656" duration="175000" />
+      <workItem from="1714925723966" duration="4953000" />
+      <workItem from="1716381210255" duration="16434000" />
+      <workItem from="1716451488164" duration="2888000" />
+      <workItem from="1716454460527" duration="1621000" />
     </task>
     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
       <option name="closed" value="true" />
@@ -203,39 +207,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713617420816</updated>
     </task>
-    <task id="LOCAL-00007" summary="Takmer hotová security">
-      <option name="closed" value="true" />
-      <created>1713950897082</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1713950897083</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Takmer hotová security">
-      <option name="closed" value="true" />
-      <created>1713950918258</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1713950918258</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Musím dať commit, inak mi to nedá update">
-      <option name="closed" value="true" />
-      <created>1714940993106</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1714940993106</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Musím dať commit, inak mi to nedá update">
-      <option name="closed" value="true" />
-      <created>1714941043790</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1714941043790</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,8 +220,6 @@
     <MESSAGE value="Pridanie Entit a DTO - Šimon" />
     <MESSAGE value="Pridanie authentifikacie" />
     <MESSAGE value="Prvotné pridanie security" />
-    <MESSAGE value="Takmer hotová security" />
-    <MESSAGE value="Musím dať commit, inak mi to nedá update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Musím dať commit, inak mi to nedá update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prvotné pridanie security" />
   </component>
 </project>

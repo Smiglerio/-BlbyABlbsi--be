@@ -44,10 +44,12 @@ public class SecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/fitness/api/authentication")
+        return (web) -> web.ignoring()
+                .requestMatchers("/fitness/api/authentication")
                 .requestMatchers("/fitness/api/uzivatel")
                 .requestMatchers("/fitness/api/uzivatel/all")
                 .requestMatchers("/fitness/api/uzivatel/{id}")
+                .requestMatchers("/fitness/api/uzivatel/change/{id}")
                 .requestMatchers("/fitness/api/cvicenie")
                 .requestMatchers("/fitness/api/cvicenie/{id}")
                 .requestMatchers("/fitness/api/cvicenie/list")

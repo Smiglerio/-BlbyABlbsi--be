@@ -1,14 +1,12 @@
 package com.example.demo.service;
+import com.example.demo.persistence.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
-import com.example.demo.persistence.cvicenieRepository;
-import com.example.demo.persistence.treningovePlanyRepository;
-import com.example.demo.persistence.treningovePlanyEntity;
 import com.example.demo.service.cvicenieDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.demo.persistence.cvicenieEntity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +17,8 @@ public class cvicenieService {
     private cvicenieRepository cvicenieRepository;
     @Autowired
     private treningovePlanyRepository treningovePlanyRepository;
+    @Autowired
+    private typCviceniaRepository typCviceniaRepository;
     public cvicenieDTO getCvicenie(Long id) {
         Optional<cvicenieEntity> opt = cvicenieRepository.findById(id);
         if (opt.isEmpty()) {
@@ -37,9 +37,12 @@ public class cvicenieService {
     public Long createCvicenie(cvicenieDTO dto){
         cvicenieEntity entity = new cvicenieEntity();
         entity.setCvicenieid(dto.getCvicenieid());
-        /*entity.setNarocnostCviku(dto.getNarocnostCviku());*/
         entity.setNazovCviku(dto.getNazovCviku());
         entity.setPopisCviku(dto.getPopisCviku());
+        entity.setIdTypCvicenia(typCviceniaRepository.findById(dto.getIdTypCvicenia()).get());
+        System.out.println("nazov cviku " + entity.getNazovCviku());
+        System.out.println("popis cviku " + entity.getPopisCviku());
+        this.cvicenieRepository.save(entity);
         return entity.getCvicenieid();
     }
 

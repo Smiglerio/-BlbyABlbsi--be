@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data // automaticky doplni gettre, setre , toString , ...
@@ -19,9 +20,10 @@ public class uzivatelDTO {
     private String username;
     private String heslo;
     private int vek;
-    private int vaha;
+    private String vaha;
     private int vyska;
     private String pohlavie;
     private Long userId;
     private Set<String> roles = new HashSet<>();
+    private List<Integer> vahaList;
 }

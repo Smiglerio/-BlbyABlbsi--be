@@ -1,7 +1,9 @@
 package com.example.demo.service;
 import com.example.demo.persistence.cvicenieEntity;
+import org.hibernate.mapping.Any;
 import org.springframework.stereotype.Service;
 import com.example.demo.persistence.treningovePlanyRepository;
+import com.example.demo.persistence.cvicenieRepository;
 import com.example.demo.service.treningovyPlanDTO;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import java.util.Optional;
 public class treningovyPlanService {
     @Autowired
     private treningovePlanyRepository treningovePlanyRepository;
+    @Autowired
+    private cvicenieRepository cvicenieRepository;
     public treningovyPlanDTO getTreningovyPlan(Long id){
         Optional<treningovePlanyEntity> opt = treningovePlanyRepository.findById(id);
         if (opt.isEmpty()) {
@@ -31,11 +35,25 @@ public class treningovyPlanService {
     }
 
     public Long createTreningovyPlan(treningovyPlanDTO dto){
+        System.out.println(dto);
         treningovePlanyEntity entity = new treningovePlanyEntity();
         entity.setNazov(dto.getNazov());
         entity.setPlanId(dto.getPlanId());
-        entity.setNazov(dto.getNazov());
+        entity.setPopis(dto.getPopis());
+        this.treningovePlanyRepository.save(entity);
+        pridajCviceniaDoPlanu(entity, dto.getCviceniaList());
         return entity.getPlanId();
+    }
+
+
+    public void pridajCviceniaDoPlanu(treningovePlanyEntity plan, List<Long> idCvicenie) {
+        List<cvicenieEntity> cvicenia = new ArrayList<>();
+        for (Long id : idCvicenie) {
+            Optional<cvicenieEntity> cvicenieOpt = cvicenieRepository.findById(id);
+            cvicenieOpt.ifPresent(cvicenia::add);
+        }
+        plan.setCvicenia(cvicenia);
+        treningovePlanyRepository.save(plan);
     }
 
     public ArrayList<treningovyPlanDTO> getAllTreningovePlany(){
@@ -61,7 +79,6 @@ public class treningovyPlanService {
                 dto.setCvicenieid(cvicenie.getCvicenieid());
                 dto.setNazovCviku(cvicenie.getNazovCviku());
                 dto.setPopisCviku(cvicenie.getPopisCviku());
-                dto.setIdTypCvicenia(cvicenie.getIdTypCvicenia().getIdTypCvicenia());
                 dto.setIdTypCvicenia(cvicenie.getIdTypCvicenia().getIdTypCvicenia());
                 dto.setNarocnost(cvicenie.getIdTypCvicenia().getNarocnost());
                 dto.setPocetOpakovani(cvicenie.getIdTypCvicenia().getPocetOpakovani());

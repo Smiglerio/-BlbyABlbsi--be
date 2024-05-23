@@ -22,7 +22,8 @@ public class uzivatelService {
     private treningovePlanyRepository treningovePlanyRepository;
     @Autowired
     private TokenRepository tokenRepository;
-
+    @Autowired
+    private vahaRepository vahaRepository;
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -138,7 +139,20 @@ public class uzivatelService {
         }
     }
 */
+    public void updateVaha(String token_){
+        String token = token_.split("/")[0];
+        String novaVaha = token_.split("/")[1];
 
+        System.out.println("nova vaha " + novaVaha);
+        uzivatelDTO dto = getUzivatelFromToken(token);
+        uzivatelEntity opt = uzivatelRepository.findById(dto.getUserId()).get();
+        vahaEntity entity = new vahaEntity();
+        entity.setUserId(opt);
+        entity.setVaha(dto.getVaha());
+        opt.setVaha(novaVaha);
+        uzivatelRepository.save(opt);
+        vahaRepository.save(entity);
+    }
     // delete existujúceho uzívateľa
     @PreAuthorize("ROLE_ADMIN")
     public boolean deleteUzivatel(Long id) {

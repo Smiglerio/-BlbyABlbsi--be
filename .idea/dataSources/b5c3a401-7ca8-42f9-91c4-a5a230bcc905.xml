@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>2415</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2504</IntrospectionStateNumber>
       <ServerVersion>16.2</ServerVersion>
       <StartupTime>1716451427</StartupTime>
       <TimeZones>true ACDT
@@ -1399,7 +1399,7 @@ true posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>2415</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2504</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </database>
@@ -4823,27 +4823,27 @@ true posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>2415</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-05-23.11:03:22.471</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-05-23.09:03:23</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>2504</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-05-23.13:29:36.417</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-05-23.11:29:37</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <sequence id="265" parent="264" name="cvicenie_cvicenieid_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>35771</ObjectId>
+      <ObjectId>35919</ObjectId>
       <SequenceIdentity>1(1)</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2385</StateNumber>
+      <StateNumber>2471</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </sequence>
     <sequence id="266" parent="264" name="pokrok_pokrokid_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>35785</ObjectId>
+      <ObjectId>35933</ObjectId>
       <SequenceIdentity>1(1)</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2387</StateNumber>
+      <StateNumber>2473</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </sequence>
     <sequence id="267" parent="264" name="roles_seq">
@@ -4857,25 +4857,25 @@ true posixrules
     <sequence id="268" parent="264" name="token_seq">
       <DasType>bigint|0s</DasType>
       <ObjectId>25503</ObjectId>
-      <SequenceIdentity>1(1601)+50</SequenceIdentity>
+      <SequenceIdentity>1(1751)+50</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>1190</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </sequence>
     <sequence id="269" parent="264" name="treningoveplany_planid_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>35802</ObjectId>
+      <ObjectId>35950</ObjectId>
       <SequenceIdentity>1(1)</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2390</StateNumber>
+      <StateNumber>2476</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </sequence>
     <sequence id="270" parent="264" name="typ_cvicenia_id_typ_cvicenia_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>35811</ObjectId>
+      <ObjectId>35959</ObjectId>
       <SequenceIdentity>1(6)</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2391</StateNumber>
+      <StateNumber>2477</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </sequence>
     <sequence id="271" parent="264" name="users_seq">
@@ -4888,510 +4888,569 @@ true posixrules
     </sequence>
     <sequence id="272" parent="264" name="uzivatel_userid_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>35821</ObjectId>
-      <SequenceIdentity>1(1)</SequenceIdentity>
+      <ObjectId>35969</ObjectId>
+      <SequenceIdentity>1(3)</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </sequence>
-    <table id="273" parent="264" name="cvicenie">
-      <ObjectId>35772</ObjectId>
-      <StateNumber>2395</StateNumber>
+    <sequence id="273" parent="264" name="vaha_vaha_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>35983</ObjectId>
+      <SequenceIdentity>1(1)</SequenceIdentity>
+      <StartValue>1</StartValue>
+      <StateNumber>2481</StateNumber>
+      <OwnerName>blbyABlbsiUser</OwnerName>
+    </sequence>
+    <table id="274" parent="264" name="cvicenie">
+      <ObjectId>35920</ObjectId>
+      <StateNumber>2482</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="274" parent="264" name="cvicenie_treningoveplany">
-      <ObjectId>35780</ObjectId>
-      <StateNumber>2396</StateNumber>
+    <table id="275" parent="264" name="cvicenie_treningoveplany">
+      <ObjectId>35928</ObjectId>
+      <StateNumber>2483</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="275" parent="264" name="pokrok">
-      <ObjectId>35786</ObjectId>
-      <StateNumber>2398</StateNumber>
+    <table id="276" parent="264" name="pokrok">
+      <ObjectId>35934</ObjectId>
+      <StateNumber>2485</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="276" parent="264" name="roles">
-      <ObjectId>35792</ObjectId>
-      <StateNumber>2403</StateNumber>
+    <table id="277" parent="264" name="roles">
+      <ObjectId>35940</ObjectId>
+      <StateNumber>2490</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="277" parent="264" name="token">
-      <ObjectId>35797</ObjectId>
-      <StateNumber>2400</StateNumber>
+    <table id="278" parent="264" name="token">
+      <ObjectId>35945</ObjectId>
+      <StateNumber>2487</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="278" parent="264" name="treningoveplany">
-      <ObjectId>35803</ObjectId>
-      <StateNumber>2397</StateNumber>
+    <table id="279" parent="264" name="treningoveplany">
+      <ObjectId>35951</ObjectId>
+      <StateNumber>2484</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="279" parent="264" name="typ_cvicenia">
-      <ObjectId>35812</ObjectId>
-      <StateNumber>2395</StateNumber>
+    <table id="280" parent="264" name="typ_cvicenia">
+      <ObjectId>35960</ObjectId>
+      <StateNumber>2482</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="280" parent="264" name="usertp">
-      <ObjectId>35818</ObjectId>
-      <StateNumber>2401</StateNumber>
+    <table id="281" parent="264" name="usertp">
+      <ObjectId>35966</ObjectId>
+      <StateNumber>2488</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="281" parent="264" name="uzivatel">
-      <ObjectId>35822</ObjectId>
-      <StateNumber>2399</StateNumber>
+    <table id="282" parent="264" name="uzivatel">
+      <ObjectId>35970</ObjectId>
+      <StateNumber>2486</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <table id="282" parent="264" name="uzivatel_roles">
-      <ObjectId>35830</ObjectId>
-      <StateNumber>2403</StateNumber>
+    <table id="283" parent="264" name="uzivatel_roles">
+      <ObjectId>35978</ObjectId>
+      <StateNumber>2490</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>blbyABlbsiUser</OwnerName>
     </table>
-    <column id="283" parent="273" name="cvicenieid">
+    <table id="284" parent="264" name="vaha">
+      <ObjectId>35984</ObjectId>
+      <StateNumber>2492</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>blbyABlbsiUser</OwnerName>
+    </table>
+    <column id="285" parent="274" name="cvicenieid">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;cvicenie_cvicenieid_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2385</StateNumber>
-      <SequenceId>35771</SequenceId>
+      <StateNumber>2471</StateNumber>
+      <SequenceId>35919</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="284" parent="273" name="nazovcviku">
+    <column id="286" parent="274" name="nazovcviku">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2385</StateNumber>
+      <StateNumber>2471</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="285" parent="273" name="popiscviku">
+    <column id="287" parent="274" name="popiscviku">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2385</StateNumber>
+      <StateNumber>2471</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="286" parent="273" name="id_typ_cvicenia">
+    <column id="288" parent="274" name="id_typ_cvicenia">
       <DasType>bigint|0s</DasType>
       <Position>4</Position>
-      <StateNumber>2385</StateNumber>
+      <StateNumber>2471</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="287" parent="273" name="fk6p2aivp6bgch1d23fbo52ej9r">
+    <foreign-key id="289" parent="274" name="fk6p2aivp6bgch1d23fbo52ej9r">
       <ColNames>id_typ_cvicenia</ColNames>
-      <ObjectId>35835</ObjectId>
-      <StateNumber>2395</StateNumber>
+      <ObjectId>35990</ObjectId>
+      <StateNumber>2482</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35812</RefTableId>
+      <RefTableId>35960</RefTableId>
     </foreign-key>
-    <index id="288" parent="273" name="cvicenie_pkey">
+    <index id="290" parent="274" name="cvicenie_pkey">
       <ColNames>cvicenieid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35778</ObjectId>
+      <ObjectId>35926</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2385</StateNumber>
+      <StateNumber>2471</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="289" parent="273" name="cvicenie_pkey">
+    <key id="291" parent="274" name="cvicenie_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35779</ObjectId>
+      <ObjectId>35927</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2385</StateNumber>
-      <UnderlyingIndexId>35778</UnderlyingIndexId>
+      <StateNumber>2471</StateNumber>
+      <UnderlyingIndexId>35926</UnderlyingIndexId>
     </key>
-    <column id="290" parent="274" name="planid">
+    <column id="292" parent="275" name="planid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2386</StateNumber>
+      <StateNumber>2472</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="291" parent="274" name="cvicenieid">
+    <column id="293" parent="275" name="cvicenieid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2386</StateNumber>
+      <StateNumber>2472</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="292" parent="274" name="fk1jxmggnwx8n1m015g1i6xlpr3">
+    <foreign-key id="294" parent="275" name="fk1jxmggnwx8n1m015g1i6xlpr3">
       <ColNames>planid</ColNames>
-      <ObjectId>35845</ObjectId>
-      <StateNumber>2397</StateNumber>
+      <ObjectId>36000</ObjectId>
+      <StateNumber>2484</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35803</RefTableId>
+      <RefTableId>35951</RefTableId>
     </foreign-key>
-    <foreign-key id="293" parent="274" name="fkc4nhfsgdt69t9dhywtxasp8y4">
+    <foreign-key id="295" parent="275" name="fkc4nhfsgdt69t9dhywtxasp8y4">
       <ColNames>cvicenieid</ColNames>
-      <ObjectId>35840</ObjectId>
-      <StateNumber>2396</StateNumber>
+      <ObjectId>35995</ObjectId>
+      <StateNumber>2483</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35772</RefTableId>
+      <RefTableId>35920</RefTableId>
     </foreign-key>
-    <index id="294" parent="274" name="cvicenie_treningoveplany_pkey">
+    <index id="296" parent="275" name="cvicenie_treningoveplany_pkey">
       <ColNames>cvicenieid
 planid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35783</ObjectId>
+      <ObjectId>35931</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2386</StateNumber>
+      <StateNumber>2472</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="295" parent="274" name="cvicenie_treningoveplany_pkey">
+    <key id="297" parent="275" name="cvicenie_treningoveplany_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35784</ObjectId>
+      <ObjectId>35932</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2386</StateNumber>
-      <UnderlyingIndexId>35783</UnderlyingIndexId>
+      <StateNumber>2472</StateNumber>
+      <UnderlyingIndexId>35931</UnderlyingIndexId>
     </key>
-    <column id="296" parent="275" name="pokrokid">
+    <column id="298" parent="276" name="pokrokid">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;pokrok_pokrokid_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2387</StateNumber>
-      <SequenceId>35785</SequenceId>
+      <StateNumber>2473</StateNumber>
+      <SequenceId>35933</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="297" parent="275" name="datum">
+    <column id="299" parent="276" name="datum">
       <DasType>timestamp(6)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2387</StateNumber>
+      <StateNumber>2473</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="298" parent="275" name="cvicenieid">
+    <column id="300" parent="276" name="cvicenieid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>2387</StateNumber>
+      <StateNumber>2473</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="299" parent="275" name="userid">
+    <column id="301" parent="276" name="userid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>2387</StateNumber>
+      <StateNumber>2473</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="300" parent="275" name="fk15qmhtreve3v223ohyqt858pv">
+    <foreign-key id="302" parent="276" name="fk15qmhtreve3v223ohyqt858pv">
       <ColNames>cvicenieid</ColNames>
-      <ObjectId>35850</ObjectId>
-      <StateNumber>2398</StateNumber>
+      <ObjectId>36005</ObjectId>
+      <StateNumber>2485</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35772</RefTableId>
+      <RefTableId>35920</RefTableId>
     </foreign-key>
-    <foreign-key id="301" parent="275" name="fk1kepa3tk6fok059amo837i6ar">
+    <foreign-key id="303" parent="276" name="fk1kepa3tk6fok059amo837i6ar">
       <ColNames>userid</ColNames>
-      <ObjectId>35855</ObjectId>
-      <StateNumber>2399</StateNumber>
+      <ObjectId>36010</ObjectId>
+      <StateNumber>2486</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35822</RefTableId>
+      <RefTableId>35970</RefTableId>
     </foreign-key>
-    <index id="302" parent="275" name="pokrok_pkey">
+    <index id="304" parent="276" name="pokrok_pkey">
       <ColNames>pokrokid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35790</ObjectId>
+      <ObjectId>35938</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2387</StateNumber>
+      <StateNumber>2473</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="303" parent="275" name="pokrok_pkey">
+    <key id="305" parent="276" name="pokrok_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35791</ObjectId>
+      <ObjectId>35939</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2387</StateNumber>
-      <UnderlyingIndexId>35790</UnderlyingIndexId>
+      <StateNumber>2473</StateNumber>
+      <UnderlyingIndexId>35938</UnderlyingIndexId>
     </key>
-    <column id="304" parent="276" name="id">
+    <column id="306" parent="277" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2388</StateNumber>
+      <StateNumber>2474</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="305" parent="276" name="role_name">
+    <column id="307" parent="277" name="role_name">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2388</StateNumber>
+      <StateNumber>2474</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="306" parent="276" name="roles_pkey">
+    <index id="308" parent="277" name="roles_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35795</ObjectId>
+      <ObjectId>35943</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2388</StateNumber>
+      <StateNumber>2474</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="307" parent="276" name="roles_pkey">
+    <key id="309" parent="277" name="roles_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35796</ObjectId>
+      <ObjectId>35944</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2388</StateNumber>
-      <UnderlyingIndexId>35795</UnderlyingIndexId>
+      <StateNumber>2474</StateNumber>
+      <UnderlyingIndexId>35943</UnderlyingIndexId>
     </key>
-    <column id="308" parent="277" name="id">
+    <column id="310" parent="278" name="id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2389</StateNumber>
+      <StateNumber>2475</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="309" parent="277" name="valid_until">
+    <column id="311" parent="278" name="valid_until">
       <DasType>timestamp|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2389</StateNumber>
+      <StateNumber>2475</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="310" parent="277" name="token">
+    <column id="312" parent="278" name="token">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2389</StateNumber>
+      <StateNumber>2475</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="311" parent="277" name="userid">
+    <column id="313" parent="278" name="userid">
       <DasType>bigint|0s</DasType>
       <Position>4</Position>
-      <StateNumber>2389</StateNumber>
+      <StateNumber>2475</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="312" parent="277" name="fkitfv18okk5gxnxuoxi51vddl">
+    <foreign-key id="314" parent="278" name="fkitfv18okk5gxnxuoxi51vddl">
       <ColNames>userid</ColNames>
-      <ObjectId>35860</ObjectId>
-      <StateNumber>2400</StateNumber>
+      <ObjectId>36015</ObjectId>
+      <StateNumber>2487</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35822</RefTableId>
+      <RefTableId>35970</RefTableId>
     </foreign-key>
-    <index id="313" parent="277" name="token_pkey">
+    <index id="315" parent="278" name="token_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35800</ObjectId>
+      <ObjectId>35948</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2389</StateNumber>
+      <StateNumber>2475</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="314" parent="277" name="token_pkey">
+    <key id="316" parent="278" name="token_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35801</ObjectId>
+      <ObjectId>35949</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2389</StateNumber>
-      <UnderlyingIndexId>35800</UnderlyingIndexId>
+      <StateNumber>2475</StateNumber>
+      <UnderlyingIndexId>35948</UnderlyingIndexId>
     </key>
-    <column id="315" parent="278" name="planid">
+    <column id="317" parent="279" name="planid">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;treningoveplany_planid_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2390</StateNumber>
-      <SequenceId>35802</SequenceId>
+      <StateNumber>2476</StateNumber>
+      <SequenceId>35950</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="316" parent="278" name="nazov">
+    <column id="318" parent="279" name="nazov">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2390</StateNumber>
+      <StateNumber>2476</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="317" parent="278" name="popis">
+    <column id="319" parent="279" name="popis">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2390</StateNumber>
+      <StateNumber>2476</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="318" parent="278" name="treningoveplany_pkey">
+    <index id="320" parent="279" name="treningoveplany_pkey">
       <ColNames>planid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35809</ObjectId>
+      <ObjectId>35957</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2390</StateNumber>
+      <StateNumber>2476</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="319" parent="278" name="treningoveplany_pkey">
+    <key id="321" parent="279" name="treningoveplany_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35810</ObjectId>
+      <ObjectId>35958</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2390</StateNumber>
-      <UnderlyingIndexId>35809</UnderlyingIndexId>
+      <StateNumber>2476</StateNumber>
+      <UnderlyingIndexId>35957</UnderlyingIndexId>
     </key>
-    <column id="320" parent="279" name="id_typ_cvicenia">
+    <column id="322" parent="280" name="id_typ_cvicenia">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;typ_cvicenia_id_typ_cvicenia_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2391</StateNumber>
-      <SequenceId>35811</SequenceId>
+      <StateNumber>2477</StateNumber>
+      <SequenceId>35959</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="321" parent="279" name="narocnost">
+    <column id="323" parent="280" name="narocnost">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2391</StateNumber>
+      <StateNumber>2477</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="322" parent="279" name="pocet_opakovani">
+    <column id="324" parent="280" name="pocet_opakovani">
       <DasType>integer|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2391</StateNumber>
+      <StateNumber>2477</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="323" parent="279" name="typ_cvicenia_pkey">
+    <index id="325" parent="280" name="typ_cvicenia_pkey">
       <ColNames>id_typ_cvicenia</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35816</ObjectId>
+      <ObjectId>35964</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2391</StateNumber>
+      <StateNumber>2477</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="324" parent="279" name="typ_cvicenia_pkey">
+    <key id="326" parent="280" name="typ_cvicenia_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35817</ObjectId>
+      <ObjectId>35965</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2391</StateNumber>
-      <UnderlyingIndexId>35816</UnderlyingIndexId>
+      <StateNumber>2477</StateNumber>
+      <UnderlyingIndexId>35964</UnderlyingIndexId>
     </key>
-    <column id="325" parent="280" name="userid">
+    <column id="327" parent="281" name="userid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2392</StateNumber>
+      <StateNumber>2478</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="326" parent="280" name="planid">
+    <column id="328" parent="281" name="planid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2392</StateNumber>
+      <StateNumber>2478</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="327" parent="280" name="fkivj9yfhmw0js3xkck24nn3ig7">
+    <foreign-key id="329" parent="281" name="fkivj9yfhmw0js3xkck24nn3ig7">
       <ColNames>userid</ColNames>
-      <ObjectId>35870</ObjectId>
-      <StateNumber>2402</StateNumber>
+      <ObjectId>36025</ObjectId>
+      <StateNumber>2489</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35822</RefTableId>
+      <RefTableId>35970</RefTableId>
     </foreign-key>
-    <foreign-key id="328" parent="280" name="fkqyv1an9wfas3mcmnvru4vuqc8">
+    <foreign-key id="330" parent="281" name="fkqyv1an9wfas3mcmnvru4vuqc8">
       <ColNames>planid</ColNames>
-      <ObjectId>35865</ObjectId>
-      <StateNumber>2401</StateNumber>
+      <ObjectId>36020</ObjectId>
+      <StateNumber>2488</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35803</RefTableId>
+      <RefTableId>35951</RefTableId>
     </foreign-key>
-    <column id="329" parent="281" name="userid">
+    <column id="331" parent="282" name="userid">
       <DasType>bigint|0s</DasType>
       <DefaultExpression>nextval(&apos;uzivatel_userid_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2393</StateNumber>
-      <SequenceId>35821</SequenceId>
+      <StateNumber>2479</StateNumber>
+      <SequenceId>35969</SequenceId>
       <TypeId>20</TypeId>
     </column>
-    <column id="330" parent="281" name="heslo">
+    <column id="332" parent="282" name="heslo">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="331" parent="281" name="pohlavie">
+    <column id="333" parent="282" name="pohlavie">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="332" parent="281" name="username">
+    <column id="334" parent="282" name="username">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="333" parent="281" name="vaha">
-      <DasType>integer|0s</DasType>
+    <column id="335" parent="282" name="vaha">
+      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
-      <StateNumber>2393</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>2479</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="334" parent="281" name="vek">
+    <column id="336" parent="282" name="vek">
       <DasType>integer|0s</DasType>
       <Position>6</Position>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="335" parent="281" name="vyska">
+    <column id="337" parent="282" name="vyska">
       <DasType>integer|0s</DasType>
       <Position>7</Position>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="336" parent="281" name="uzivatel_pkey">
+    <index id="338" parent="282" name="uzivatel_pkey">
       <ColNames>userid</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35828</ObjectId>
+      <ObjectId>35976</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2393</StateNumber>
+      <StateNumber>2479</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="337" parent="281" name="uzivatel_pkey">
+    <key id="339" parent="282" name="uzivatel_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35829</ObjectId>
+      <ObjectId>35977</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2393</StateNumber>
-      <UnderlyingIndexId>35828</UnderlyingIndexId>
+      <StateNumber>2479</StateNumber>
+      <UnderlyingIndexId>35976</UnderlyingIndexId>
     </key>
-    <column id="338" parent="282" name="uzivatel_entity_userid">
+    <column id="340" parent="283" name="uzivatel_entity_userid">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>2394</StateNumber>
+      <StateNumber>2480</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="339" parent="282" name="roles_id">
+    <column id="341" parent="283" name="roles_id">
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>2394</StateNumber>
+      <StateNumber>2480</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <foreign-key id="340" parent="282" name="fkn72f9rhxhqimm100c6k2pytyu">
+    <foreign-key id="342" parent="283" name="fkn72f9rhxhqimm100c6k2pytyu">
       <ColNames>uzivatel_entity_userid</ColNames>
-      <ObjectId>35880</ObjectId>
-      <StateNumber>2404</StateNumber>
+      <ObjectId>36035</ObjectId>
+      <StateNumber>2491</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35822</RefTableId>
+      <RefTableId>35970</RefTableId>
     </foreign-key>
-    <foreign-key id="341" parent="282" name="fkhlhsck0oeje91i8am8xhs0f86">
+    <foreign-key id="343" parent="283" name="fkhlhsck0oeje91i8am8xhs0f86">
       <ColNames>roles_id</ColNames>
-      <ObjectId>35875</ObjectId>
-      <StateNumber>2403</StateNumber>
+      <ObjectId>36030</ObjectId>
+      <StateNumber>2490</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>35792</RefTableId>
+      <RefTableId>35940</RefTableId>
     </foreign-key>
-    <index id="342" parent="282" name="uzivatel_roles_pkey">
+    <index id="344" parent="283" name="uzivatel_roles_pkey">
       <ColNames>uzivatel_entity_userid
 roles_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35833</ObjectId>
+      <ObjectId>35981</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2394</StateNumber>
+      <StateNumber>2480</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="343" parent="282" name="uzivatel_roles_pkey">
+    <key id="345" parent="283" name="uzivatel_roles_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>35834</ObjectId>
+      <ObjectId>35982</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>2394</StateNumber>
-      <UnderlyingIndexId>35833</UnderlyingIndexId>
+      <StateNumber>2480</StateNumber>
+      <UnderlyingIndexId>35981</UnderlyingIndexId>
+    </key>
+    <column id="346" parent="284" name="vaha_id">
+      <DasType>bigint|0s</DasType>
+      <DefaultExpression>nextval(&apos;vaha_vaha_id_seq&apos;::regclass)</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>2481</StateNumber>
+      <SequenceId>35983</SequenceId>
+      <TypeId>20</TypeId>
+    </column>
+    <column id="347" parent="284" name="vaha">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>2481</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="348" parent="284" name="user_id">
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>2481</StateNumber>
+      <TypeId>20</TypeId>
+    </column>
+    <foreign-key id="349" parent="284" name="fkcvxfik00mbo2olns605on3ebs">
+      <ColNames>user_id</ColNames>
+      <ObjectId>36040</ObjectId>
+      <StateNumber>2492</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>35970</RefTableId>
+    </foreign-key>
+    <index id="350" parent="284" name="vaha_pkey">
+      <ColNames>vaha_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>35988</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2481</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="351" parent="284" name="vaha_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>35989</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>2481</StateNumber>
+      <UnderlyingIndexId>35988</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

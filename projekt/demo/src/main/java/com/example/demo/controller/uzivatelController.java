@@ -1,4 +1,5 @@
 package com.example.demo.controller;
+import com.example.demo.persistence.uzivatelEntity;
 import com.example.demo.security.service.AuthenticationService;
 import com.example.demo.service.cvicenieDTO;
 import com.example.demo.service.treningovyPlanDTO;
@@ -73,4 +74,10 @@ public class uzivatelController {
     public List<treningovyPlanDTO> getTreningovePlanyByUserId(@PathVariable Long id) {
         return uzivatelService.getTreningovePlanyByUserId(id);
     }
+
+    @PutMapping("/api/uzivatel/vaha")
+    public void updateVaha(@RequestBody String token){
+        uzivatelService.updateVaha(token);
+    }
+
 }

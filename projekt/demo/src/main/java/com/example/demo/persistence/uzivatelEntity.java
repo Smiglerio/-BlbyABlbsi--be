@@ -41,7 +41,7 @@ public class uzivatelEntity {
             inverseJoinColumns = @JoinColumn(name = "planid")
     )
     private List<treningovePlanyEntity> usertp;
-    @OneToMany
-    private List<uzivatelEntity> uservaha;
+    @OneToMany(mappedBy = "userId")
+    private List<vahaEntity> uservaha;
 
 }

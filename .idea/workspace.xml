@@ -4,30 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="oprava odhlasenia, pridanie pridelovania treningovych planov uzivatelom">
+    <list default="true" id="956d7de9-285b-41e2-8c63-45164a3a88e5" name="Changes" comment="zmena vahy pridana">
+      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/vahaEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/vahaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b5c3a401-7ca8-42f9-91c4-a5a230bcc905/storage_v2/_src_/database/blbyABlbsiDB.TGRgHA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22__4__2024_12_43__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_22__4__2024_12_43__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28__4__2024_13_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_28__4__2024_13_48__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24__4__2024_11_42__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_27__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_28__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5__5__2024_22_28__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/typCviceniaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/controller/uzivatelController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/persistence/uzivatelEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/cvicenieService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/treningovyPlanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/typCviceniaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/security/core/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/main/java/com/example/demo/service/uzivatelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/persistence/uzivatelEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/target/classes/com/example/demo/service/uzivatelService.class" afterDir="false" />
     </list>
     <list id="b8f9f914-f6a5-48e3-a872-32f4816feac6" name="Changes by marek" comment="" />
-    <list id="3ba5ef9d-8f1e-490e-a0ca-44cfd29758be" name="Changes by MarekMajo" comment="">
-      <change beforePath="$PROJECT_DIR$/projekt/demo/src/test/java/com/example/demo/security/AuthenticationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/projekt/demo/src/test/java/com/example/demo/security/AuthenticationControllerTest.java" afterDir="false" />
-    </list>
+    <list id="3ba5ef9d-8f1e-490e-a0ca-44cfd29758be" name="Changes by MarekMajo" comment="vytvorenie tp, cviceni" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,7 +148,7 @@
       <workItem from="1714925723966" duration="4953000" />
       <workItem from="1716381210255" duration="16434000" />
       <workItem from="1716451488164" duration="2888000" />
-      <workItem from="1716454460527" duration="1621000" />
+      <workItem from="1716454460527" duration="9692000" />
     </task>
     <task id="LOCAL-00001" summary="Základné prepojenie s Frontendom">
       <option name="closed" value="true" />
@@ -207,7 +198,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713617420816</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="vytvorenie tp, cviceni">
+      <option name="closed" value="true" />
+      <created>1716457304395</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716457304395</updated>
+    </task>
+    <task id="LOCAL-00008" summary="vytvorenie tp, cviceni">
+      <option name="closed" value="true" />
+      <created>1716457327077</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1716457327077</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +227,8 @@
     <MESSAGE value="Pridanie Entit a DTO - Šimon" />
     <MESSAGE value="Pridanie authentifikacie" />
     <MESSAGE value="Prvotné pridanie security" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prvotné pridanie security" />
+    <MESSAGE value="vytvorenie tp, cviceni" />
+    <MESSAGE value="zmena vahy pridana" />
+    <option name="LAST_COMMIT_MESSAGE" value="zmena vahy pridana" />
   </component>
 </project>

@@ -1,5 +1,6 @@
 package com.example.demo.service;
 import com.example.demo.persistence.*;
+import jakarta.persistence.Tuple;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -7,11 +8,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class uzivatelService {
@@ -22,7 +21,8 @@ public class uzivatelService {
     private treningovePlanyRepository treningovePlanyRepository;
     @Autowired
     private TokenRepository tokenRepository;
-
+    @Autowired
+    private vahaRepository vahaRepository;
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -45,7 +45,12 @@ public class uzivatelService {
     }
 
     public uzivatelDTO getUzivatelFromToken(String token_) {
-        Optional<TokenEntity> tokenEntity = tokenRepository.findByToken(token_.split("\"")[3]);
+        Optional<TokenEntity> tokenEntity;
+        if (token_.contains("token")) {
+            tokenEntity = tokenRepository.findByToken(token_.split("\"")[3]);
+        } else {
+            tokenEntity = tokenRepository.findByToken(token_);
+        }
         if (tokenEntity.isPresent()) {
             TokenEntity token = tokenEntity.get();
             uzivatelEntity entity = token.getUser();
@@ -62,7 +67,7 @@ public class uzivatelService {
             }
             return dto;
         }
-        throw new RuntimeException("Authentication failed!");
+        throw new RuntimeException("Token na Užívateľa neexistuje");
     }
     public Long createUzivatel(uzivatelDTO dto) {
         uzivatelEntity uzivatelEntity = new uzivatelEntity();
@@ -164,8 +169,39 @@ public class uzivatelService {
             token.setCreatedAt(LocalDateTime.now());
             tokenRepository.save(token);
             return token.getToken();
-         } else {
+        } else {
             return null;
         }
+    }
+
+    public void updateVaha(String token_){
+        String token = token_.split("/")[0];
+        String novaVaha = token_.split("/")[1];
+        uzivatelDTO dto = getUzivatelFromToken(token);
+        uzivatelEntity opt = uzivatelRepository.findById(dto.getUserId()).get();
+        vahaEntity entity = new vahaEntity();
+        entity.setUserId(opt);
+        entity.setVaha(dto.getVaha());
+        entity.setDatum(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(Calendar.getInstance().getTime()));
+        opt.setVaha(novaVaha);
+        uzivatelRepository.save(opt);
+        vahaRepository.save(entity);
+    }
+
+    public List<List<String>> getAllVaha(String token){
+        uzivatelDTO dto = getUzivatelFromToken(token);
+        List<vahaEntity> vahy = vahaRepository.findByuserId(uzivatelRepository.findById(dto.getUserId()).get());
+        List<List<String>> result = new ArrayList<>();
+        for (vahaEntity vaha : vahy) {
+            List<String> temp = new ArrayList<>();
+            temp.add(vaha.getVaha());
+            temp.add(vaha.getDatum());
+            result.add(temp);
+        }
+        List<String> temp = new ArrayList<>();
+        temp.add(dto.getVaha());
+        temp.add(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(Calendar.getInstance().getTime()));
+        result.add(temp);
+        return result;
     }
 }

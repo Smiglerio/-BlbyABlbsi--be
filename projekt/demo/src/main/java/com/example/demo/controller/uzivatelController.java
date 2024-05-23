@@ -73,4 +73,13 @@ public class uzivatelController {
     public uzivatelDTO updateUzivatel(@PathVariable Long id, @RequestBody uzivatelDTO updatedUzivatel) {
         return uzivatelService.updateUzivatel(id, updatedUzivatel);
     }
+    @PutMapping({"/api/uzivatel/vaha"})
+    public void updateVaha(@RequestBody String token) {
+        this.uzivatelService.updateVaha(token);
+    }
+
+    @PostMapping("/api/uzivatel/getVahy")
+    public List<List<String>> getVahyByUserId(@RequestBody String token) {
+        return uzivatelService.getAllVaha(token);
+    }
 }

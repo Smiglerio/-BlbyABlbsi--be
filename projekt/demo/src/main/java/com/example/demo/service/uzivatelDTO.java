@@ -24,6 +24,7 @@ public class uzivatelDTO {
     private int vyska;
     private String pohlavie;
     private Long userId;
+    private String token;
     private Set<String> roles = new HashSet<>();
     private List<Integer> vahaList;
 }

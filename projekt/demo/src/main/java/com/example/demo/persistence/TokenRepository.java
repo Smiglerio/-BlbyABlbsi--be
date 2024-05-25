@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface TokenRepository extends CrudRepository<TokenEntity, Long> {
 
     Optional <TokenEntity> findByToken(String token);
-    Long deleteByToken(String token);
+    void deleteByToken(String token);
 
 }

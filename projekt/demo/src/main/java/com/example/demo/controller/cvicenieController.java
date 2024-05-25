@@ -25,4 +25,7 @@ public class cvicenieController {
 
     @GetMapping("api/cvicenie/list")
     public ArrayList<cvicenieDTO> getAllCvicenia(){ return cvicenieService.getAllCvicenie(); }
+
+    @PostMapping("api/cvicenie/delCvicenie")
+    public Long deleteCvicenie(@RequestBody String cvicenieId){ return cvicenieService.deleteCvicenie(cvicenieId); }
 }

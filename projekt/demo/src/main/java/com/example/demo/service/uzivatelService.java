@@ -1,6 +1,5 @@
 package com.example.demo.service;
 import com.example.demo.persistence.*;
-import jakarta.persistence.Tuple;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,6 +22,10 @@ public class uzivatelService {
     private TokenRepository tokenRepository;
     @Autowired
     private vahaRepository vahaRepository;
+    @Autowired
+    private pokrokRepository pokrokRepository;
+    @Autowired
+    private cvicenieRepository cvicenieRepository;
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -36,7 +39,7 @@ public class uzivatelService {
         uzivatelDTO dto = new uzivatelDTO();
         dto.setUserId(entity.getUserId());
         dto.setUsername(entity.getUsername());
-        dto.setHeslo(entity.getHeslo());
+        dto.setHeslo(this.passwordEncoder().encode(entity.getHeslo()));
         dto.setVaha(entity.getVaha());
         dto.setVek(entity.getVek());
         dto.setVyska(entity.getVyska());
@@ -56,8 +59,7 @@ public class uzivatelService {
             uzivatelEntity entity = token.getUser();
             uzivatelDTO dto = new uzivatelDTO();
             dto.setUserId(entity.getUserId());
-            dto.setUsername(entity.getUsername());
-            dto.setHeslo(entity.getHeslo());
+            //dto.setUsername(entity.getUsername());
             dto.setVaha(entity.getVaha());
             dto.setVek(entity.getVek());
             dto.setVyska(entity.getVyska());
@@ -130,22 +132,27 @@ public class uzivatelService {
 
     // update existujúceho uzívateľa
 
-    public uzivatelDTO updateUzivatel(Long id, uzivatelDTO updatedUzivatel) {
-        Optional<uzivatelEntity> opt = uzivatelRepository.findById(id);
-        if (opt.isPresent()) {
-            uzivatelEntity existingUzivatel = opt.get();
-            existingUzivatel.setUsername(updatedUzivatel.getUsername());
-            existingUzivatel.setHeslo(this.passwordEncoder().encode(updatedUzivatel.getHeslo()));
-            existingUzivatel.setVaha(updatedUzivatel.getVaha());
-            existingUzivatel.setVek(updatedUzivatel.getVek());
-            existingUzivatel.setVyska(updatedUzivatel.getVyska());
-            existingUzivatel.setPohlavie(updatedUzivatel.getPohlavie());
-            uzivatelRepository.save(existingUzivatel);
-            return updatedUzivatel;
-        } else {
-            return null;
+    public Integer updateUzivatel(uzivatelDTO updatedUzivatel) {
+        uzivatelEntity existingUzivatel = tokenRepository.findByToken(updatedUzivatel.getToken()).get().getUser();
+        existingUzivatel.setVek(updatedUzivatel.getVek());
+        existingUzivatel.setVyska(updatedUzivatel.getVyska());
+        uzivatelRepository.save(existingUzivatel);
+        if (!existingUzivatel.getVaha().equals(updatedUzivatel.getVaha())) {
+            updateVaha(updatedUzivatel.getToken() + "/" + updatedUzivatel.getVaha() + "/");
         }
+        return null;
     }
+    public Integer updateUzivatelPassword(uzivatelDTO updatedUzivatel) {
+        uzivatelEntity existingUzivatel = tokenRepository.findByToken(updatedUzivatel.getToken()).get().getUser();
+        if (this.passwordEncoder().matches(updatedUzivatel.getHeslo(), existingUzivatel.getHeslo()))
+        {
+            existingUzivatel.setHeslo(this.passwordEncoder().encode(updatedUzivatel.getPohlavie()));
+            uzivatelRepository.save(existingUzivatel);
+            return 1;
+        }
+        return null;
+    }
+
 
     // delete existujúceho uzívateľa
     @PreAuthorize("ROLE_ADMIN")
@@ -170,6 +177,7 @@ public class uzivatelService {
             tokenRepository.save(token);
             return token.getToken();
         } else {
+            System.out.println("null auth");
             return null;
         }
     }
@@ -203,5 +211,36 @@ public class uzivatelService {
         temp.add(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(Calendar.getInstance().getTime()));
         result.add(temp);
         return result;
+    }
+
+    public void updatePokrok(String data) {
+
+        String token = data.split("/")[0];
+        Long cvicenieID = Long.parseLong(data.split("/")[1]);
+        Long planID = Long.parseLong(data.split("/")[2]);
+        boolean novyStav = Boolean.parseBoolean(data.split("/")[3]);
+
+        uzivatelEntity uzivatel = uzivatelRepository.findById(getUzivatelFromToken(token).getUserId()).get();
+        Optional<cvicenieEntity> cvicenieOpt = cvicenieRepository.findById(cvicenieID);
+        Optional<treningovePlanyEntity> planOpt = treningovePlanyRepository.findById(planID);
+
+        if (cvicenieOpt.isPresent() && planOpt.isPresent()) {
+            cvicenieEntity cvicenie = cvicenieOpt.get();
+            treningovePlanyEntity plan = planOpt.get();
+            Optional<pokrokEntity> pokrokOpt = pokrokRepository.findByUzivatelEntityAndCvicenieEntityAndTreningovePlanyEntity(uzivatel, cvicenie, plan);
+
+            if (novyStav) {
+                if (pokrokOpt.isEmpty()) {
+                    pokrokEntity newPokrok = new pokrokEntity();
+                    newPokrok.setUzivatelEntity(uzivatel);
+                    newPokrok.setCvicenieEntity(cvicenie);
+                    newPokrok.setTreningovePlanyEntity(plan);
+                    newPokrok.setDatum(new SimpleDateFormat("dd.MM.yyyy HH:mm").format(Calendar.getInstance().getTime()));
+                    pokrokRepository.save(newPokrok);
+                }
+            } else {
+                pokrokOpt.ifPresent(pokrokRepository::delete);
+            }
+        }
     }
 }

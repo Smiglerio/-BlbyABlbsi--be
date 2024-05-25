@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 import com.example.demo.security.service.AuthenticationService;
+import com.example.demo.service.pokrokService;
 import com.example.demo.service.treningovyPlanDTO;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,9 +28,7 @@ public class uzivatelController {
 
     @PostMapping("/api/login")
     public String login(@RequestBody uzivatelDTO userLogin, @RequestHeader(HttpHeaders.AUTHORIZATION) String auth) {
-        System.out.println(userLogin);
         String token = uzivatelService.authenticate(userLogin.getUsername(), userLogin.getHeslo());
-        System.out.println(token);
         return token;
     }
 
@@ -69,10 +68,16 @@ public class uzivatelController {
         return uzivatelService.getTreningovePlanyByUserId(id);
     }
 
-    @PutMapping("/api/uzivatel/{id}")
-    public uzivatelDTO updateUzivatel(@PathVariable Long id, @RequestBody uzivatelDTO updatedUzivatel) {
-        return uzivatelService.updateUzivatel(id, updatedUzivatel);
+    @PostMapping("/api/uzivatel/update")
+    public Integer updateUzivatel(@RequestBody uzivatelDTO updatedUzivatel) {
+        return uzivatelService.updateUzivatel(updatedUzivatel);
     }
+
+    @PostMapping("/api/uzivatel/updatePassword")
+    public Integer updateUzivatelPassword(@RequestBody uzivatelDTO updatedUzivatel) {
+        return uzivatelService.updateUzivatelPassword(updatedUzivatel);
+    }
+
     @PutMapping({"/api/uzivatel/vaha"})
     public void updateVaha(@RequestBody String token) {
         this.uzivatelService.updateVaha(token);
@@ -82,4 +87,8 @@ public class uzivatelController {
     public List<List<String>> getVahyByUserId(@RequestBody String token) {
         return uzivatelService.getAllVaha(token);
     }
+
+    @PostMapping("/api/uzivatel/updatePokrok")
+    public void deleteCvicenie(@RequestBody String data){ uzivatelService.updatePokrok(data); }
+
 }

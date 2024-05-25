@@ -17,4 +17,6 @@ public class cvicenieDTO {
     private Long idTypCvicenia;
     private String narocnost;
     private int pocetOpakovani;
+    private Boolean odcvicene;
+    private String DatumOdcvicenia;
 }

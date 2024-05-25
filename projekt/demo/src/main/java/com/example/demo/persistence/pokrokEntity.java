@@ -24,7 +24,11 @@ public class pokrokEntity {
 
     //TODO bohvie, čo to je ale mal by som to zmeniť
     @Column(name="datum")
-    private Date datum;
+    private String datum;
+
+    @ManyToOne
+    @JoinColumn(name = "planid", nullable = false)
+    private treningovePlanyEntity treningovePlanyEntity;
 
     /*@Column(name="userid")*/
     @ManyToOne

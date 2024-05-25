@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import java.util.Optional;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
@@ -75,7 +75,10 @@ public class AuthenticationService {
 
     @Transactional
     public void tokenRemove(String token) {
-        tokenRepository.deleteByToken(token);
+        Optional<TokenEntity> tokenEntity = tokenRepository.findByToken(token);
+        if (tokenEntity.isPresent()) {
+            tokenRepository.deleteByToken(token);
+        }
     }
 
 }

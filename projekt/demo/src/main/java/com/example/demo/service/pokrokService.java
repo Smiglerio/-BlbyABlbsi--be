@@ -23,6 +23,10 @@ public class pokrokService {
     @Autowired
     private pokrokRepository pokrokRepository;
 
+    public void updatePokrok(String data) {
+        System.out.println(data);
+    }
+
     public pokrokDTO getPokrok(Long id) {
         Optional<pokrokEntity> opt = pokrokRepository.findById(id);
         if (opt.isEmpty()) {
@@ -31,7 +35,7 @@ public class pokrokService {
         pokrokEntity entity = opt.get();
         pokrokDTO dto = new pokrokDTO();
         dto.setPokrokid(entity.getPokrokid());
-        dto.setDatum(entity.getDatum());
+        //dto.setDatum(entity.getDatum());
         dto.setUzivatelEntity(entity.getUzivatelEntity());
         dto.setCvicenieEntity(entity.getCvicenieEntity());
         return dto;
@@ -39,7 +43,7 @@ public class pokrokService {
 
     public Long createPokrok(pokrokDTO dto) {
         pokrokEntity entity = new pokrokEntity();
-        entity.setDatum(dto.getDatum());
+        //entity.setDatum(dto.getDatum());
         entity.setUzivatelEntity(dto.getUzivatelEntity());
         entity.setCvicenieEntity(dto.getCvicenieEntity());
         pokrokRepository.save(entity);
@@ -52,7 +56,7 @@ public class pokrokService {
         for (pokrokEntity entity : pokrokyIterable) {
             pokrokDTO dto = new pokrokDTO();
             dto.setPokrokid(entity.getPokrokid());
-            dto.setDatum(entity.getDatum());
+            //dto.setDatum(entity.getDatum());
             dto.setUzivatelEntity(entity.getUzivatelEntity());
             dto.setCvicenieEntity(entity.getCvicenieEntity());
             pokrokyList.add(dto);
@@ -78,7 +82,7 @@ public class pokrokService {
             pokrokEntity existingPokrok = opt.get();
 
             // Aktualizujeme hodnoty záznamu
-            existingPokrok.setDatum(updatedPokrok.getDatum());
+            //existingPokrok.setDatum(updatedPokrok.getDatum());
             // aktualizacia dalsich atributov ?
 
             // dáme naspäť do DB
@@ -87,7 +91,7 @@ public class pokrokService {
             // Vytvoríme DTO objekt z aktualizovaného záznamu a vrátime ho
             pokrokDTO updatedDTO = new pokrokDTO();
             updatedDTO.setPokrokid(updatedEntity.getPokrokid());
-            updatedDTO.setDatum(updatedEntity.getDatum());
+            //updatedDTO.setDatum(updatedEntity.getDatum());
             // aktualizacia dalsich atributov ?
 
             return updatedDTO;
